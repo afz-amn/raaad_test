@@ -7,10 +7,7 @@ import 'package:radio/pages/youtubeChannel_page.dart';
 
 void main() {
   runApp(MyApp());
-  //hello word,,,,
-  // hello too
-  //hello word
-  //hello too......
+
 }
 
 class MyApp extends StatelessWidget {
