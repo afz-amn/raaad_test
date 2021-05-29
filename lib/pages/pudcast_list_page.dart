@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 
 import 'main_page.dart';
@@ -23,16 +24,18 @@ class PodcastListPageState extends State<PodcastListPage> {
             stretch: true,
             leading: Icon(
               Icons.mode_rounded,
-              color: Colors.white,
+              color: Colors.deepPurple.shade800,
             ),
             flexibleSpace: FlexibleSpaceBar(
                 title: Text(
-                  "Ali lohrasbi",
-                  style: TextStyle(color: Colors.white),
+                  "        Lindsy Stirling",
+                  style: TextStyle(color: Colors.purple.shade900,
+                  fontSize: 15),
                 ),
                 stretchModes: [StretchMode.zoomBackground],
                 background: Container(
-                  color: Colors.red,
+                  child: 
+                  Image.asset(microphone),
                 )),
           ),
           SliverList(
@@ -52,24 +55,23 @@ class PodcastListPageState extends State<PodcastListPage> {
 List<Podcast> podcastList() {
   List<Podcast>? podcasts = [];
 
-  podcasts.add(Podcast("ArtistName", 0, "imageUrl", "asdasdasd"));
-  podcasts.add(Podcast("asdasdasd", 0, "imageUrl", "p[pp"));
-  podcasts.add(Podcast("czxzxc", 0, "imageUrl", "rgtrgf"));
-  podcasts.add(Podcast("dasasd", 0, "imageUrl", "asdasdasdg"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
-  podcasts.add(Podcast("qeqqweq", 0, "imageUrl", "asdssadgh"));
+  podcasts.add(Podcast("Halo Theme Song ", 0, "imageUrl", "Lindsey Stirling . first song"));
+  podcasts.add(Podcast("Shatter Me", 0, "imageUrl", "Lindsey Stirling . second song"));
+  podcasts.add(Podcast("Beautiful Times", 0, "imageUrl", "Lindsey Stirling . third song"));
+  podcasts.add(Podcast("Brave Enough", 0, "imageUrl", "Lindsey Stirling . fourth song"));
+  podcasts.add(Podcast("Papaoutai", 0, "imageUrl", "Lindsey Stirling . first song"));
+  podcasts.add(Podcast("Somrthing Wild", 0, "imageUrl", "Lindsey Stirling . third song"));
+  podcasts.add(Podcast("Lost Girls", 0, "imageUrl", "Lindsey Stirling . first song"));
+  podcasts.add(Podcast("Dying for you", 0, "imageUrl", "Lindsey Stirling . first song"));
+  podcasts.add(Podcast("Spring without you", 0, "imageUrl", "Lindsey Stirling . first song"));
+  podcasts.add(Podcast("River Flows In You", 0, "imageUrl", "Lindsey Stirling . fourth song"));
+  podcasts.add(Podcast("You and me", 0, "imageUrl", "Lindsey Stirling . first song"));
+  podcasts.add(Podcast("My lovely days", 0, "imageUrl", "Lindsey Stirling . last song"));
+  podcasts.add(Podcast("Artemis", 0, "imageUrl", "Lindsey Stirling . last song"));
+  podcasts.add(Podcast("Gavi's Song", 0, "imageUrl", "Lindsey Stirling . eighth song"));
+  podcasts.add(Podcast("Warmer in the Winter", 0, "imageUrl", "Lindsey Stirling . first song"));
+  podcasts.add(Podcast("Hold My Heart", 0, "imageUrl", "Lindsey Stirling . last song"));
+
 
   return podcasts;
 }
@@ -104,11 +106,14 @@ class PodcastItem extends StatelessWidget {
               podcast.id.toString(),
               style: TextStyle(color: Colors.white),
             ),
+
+            //foto.........
             Container(
               width: 60,
               margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
-              color: Colors.blue,
               height: 60,
+              child:
+              Image.asset(podcastPhotos ,fit: BoxFit.cover,),
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
@@ -124,13 +129,13 @@ class PodcastItem extends StatelessWidget {
             ),
             Expanded(child: SizedBox()),
             Icon(
-              Icons.build,
+              Icons.arrow_downward_outlined,
               color: Colors.white,
             ),
             Container(
                 margin: EdgeInsets.only(left: xSmallSize(context)),
                 child: Icon(
-                  Icons.build,
+                  Icons.more_vert,
                   color: Colors.white,
                 )),
           ],

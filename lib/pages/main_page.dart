@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:radio/pages/pudcast_list_page.dart';
+import 'package:radio/pages/youtubeChannel_page.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
+
+import 'Gallery_page.dart';
+import 'contacts_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -21,13 +26,13 @@ class MainPageState extends State<MainPage>
       backgroundColor: Colors.black87,
       drawer: Drawer(
         child: Container(
-          color: Colors.grey,
+          color: Colors.grey.shade900,
           child: Column(
             children: [
               AppBar(
                 title: Text(
-                  "منو",
-                  style: TextStyle(color: Colors.white),
+                  "Radio Tiam",
+                  style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
                 leading: IconButton(
                     onPressed: () {
@@ -35,24 +40,30 @@ class MainPageState extends State<MainPage>
                     },
                     icon: Icon(
                       Icons.close,
-                      color: Colors.white,
+                      color: Colors.black,
                     )),
-
-
-
-
-
               ),
-              drawerItem(Icons.play_arrow, "asdadssad", context),
-              drawerItem(Icons.event, "asdadssad", context),
-              drawerItem(Icons.add, "asdadssad", context),
-              drawerItem(Icons.circle, "asdadssad", context),
-              drawerItem(Icons.circle, "asdadssad", context),
-              drawerItem(Icons.circle, "asdadssad", context),
-              drawerItem(Icons.circle, "asdadssad", context),
-              drawerItem(Icons.circle, "asdadssad", context),
-              drawerItem(Icons.circle, "asdadssad", context),
-              drawerItem(Icons.circle, "asdadssad", context),
+              Container(
+                  width: fullWidth(context),
+                  height: 150,
+                  child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
+
+              GestureDetector(onTap: (){
+               Navigator.push(context,MaterialPageRoute(builder: (context) => PodcastListPage(),));
+              },child: drawerItem(Icons.headset_mic_sharp, "Podcast", context)),
+
+              GestureDetector(onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => YoutubeCHannelPage(), ));
+              },child:drawerItem(Icons.ondemand_video, "Youtube ", context)),
+
+              GestureDetector(onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => GalleryPage(), ));
+              },child:drawerItem(Icons.photo_camera_front, "Gallery ", context)),
+
+              GestureDetector(onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactsPage(), ));
+              },child:drawerItem(Icons.quick_contacts_mail, "Contact us", context)),
+
             ],
           ),
         ),
@@ -66,7 +77,6 @@ class MainPageState extends State<MainPage>
               Icons.menu,
               color: Colors.white,
             )),
-
         actions: [
           IconButton(
               onPressed: () {
@@ -77,20 +87,18 @@ class MainPageState extends State<MainPage>
                 color: Colors.white,
               )),
         ],
-
         title: Text(
-          "Radio shemroon",
-          style:
-              TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          "Radio Tiam",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
         ),
       ),
       body: Column(
         children: [
           Container(
             margin: EdgeInsets.all(standardSize(context)),
-            color: Colors.red,
             height: fullHeight(context) / 2.8,
             width: fullWidth(context),
+            child: Image.asset(FirstPhoto),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
@@ -100,7 +108,6 @@ class MainPageState extends State<MainPage>
               height: 0.5,
             ),
           ),
-
           Container(
             margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
             child: Divider(
@@ -115,14 +122,14 @@ class MainPageState extends State<MainPage>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.play_disabled,
+                  Icons.play_arrow,
                   color: Colors.deepOrange,
                 ),
                 Text(
-                  "در حال پخش",
+                  "Now Playing",
                   style: TextStyle(
-                      fontSize: fullWidth(context) / 25,
-                      color: Colors.white),
+                      fontSize: fullWidth(context) / 30,
+                      color: Colors.grey.shade700),
                 )
               ],
             ),
@@ -142,15 +149,21 @@ class MainPageState extends State<MainPage>
                   child: Column(
                     children: [
                       Text(
-                        "در حال پخش",
+                        " ",
                         style: TextStyle(
                             fontSize: fullWidth(context) / 25,
                             color: Colors.white),
                       ),
                       Text(
-                        "در حال پخش",
+                        "           Available Now",
                         style: TextStyle(
-                            fontSize: fullWidth(context) / 25,
+                            fontSize: fullWidth(context) / 20,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        "                Culture and Music",
+                        style: TextStyle(
+                            fontSize: fullWidth(context) / 30,
                             color: Colors.white),
                       )
                     ],
@@ -181,7 +194,7 @@ class MainPageState extends State<MainPage>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Icon(
-                  Icons.volume_down,
+                  Icons.volume_mute_rounded,
                   color: Colors.grey,
                 ),
                 Expanded(
@@ -196,7 +209,7 @@ class MainPageState extends State<MainPage>
                   ),
                 ),
                 Icon(
-                  Icons.volume_mute_rounded,
+                  Icons.volume_down_rounded,
                   color: Colors.grey,
                 ),
               ],
@@ -210,17 +223,26 @@ class MainPageState extends State<MainPage>
 
 Widget drawerItem(IconData icon, String text, BuildContext context) {
   return Container(
-    color: Colors.grey,
+    color: Colors.grey.shade900,
     padding: EdgeInsets.symmetric(
         horizontal: smallSize(context), vertical: standardSize(context)),
     child: Row(
       children: [
-        Icon(icon),
+        Icon(
+          icon,
+          color: Colors.grey,
+        ),
         Container(
             margin: EdgeInsets.only(left: smallSize(context)),
-            child: Text(text)),
+            child: Text(
+              text,
+              style: TextStyle(color: Colors.grey),
+            )),
         Expanded(child: SizedBox()),
-        Icon(Icons.arrow_forward_ios_sharp)
+        Icon(
+          Icons.arrow_forward_ios_sharp,
+          color: Colors.grey,
+        )
       ],
     ),
   );

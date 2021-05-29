@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:radio/pages/Gallery_page.dart';
 import 'package:radio/pages/contacts_page.dart';
 import 'package:radio/pages/main_page.dart';
 import 'package:radio/pages/pudcast_list_page.dart';
+import 'package:radio/pages/youtubeChannel_page.dart';
 
 void main() {
   runApp(MyApp());
   //hello word
+  //hello too
 }
 
 class MyApp extends StatelessWidget {
@@ -16,8 +19,8 @@ class MyApp extends StatelessWidget {
       title: "Radio",
       theme: ThemeData(
           backgroundColor: Color(0xff111111),
-          // scaffoldBackgroundColor: Color(0xff111111) ,
-          fontFamily: "vazir",
+
+          scaffoldBackgroundColor: Color(0xff111111) ,
           primaryColor: Colors.white,
           appBarTheme: AppBarTheme(
               backgroundColor: Colors.black,
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
               toolbarTextStyle: TextStyle(color: Colors.white),
               centerTitle: true,
               elevation: 0)),
-      home: ContactsPage(),
+      home: MainPage (),
     );
   }
 }
