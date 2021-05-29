@@ -3,8 +3,7 @@ import 'package:radio/pages/main_page.dart';
 
 void main() {
   runApp(MyApp());
-  //hello word
-  //hello too......
+
 }
 
 class MyApp extends StatelessWidget {
