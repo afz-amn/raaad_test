@@ -95,10 +95,14 @@ class MainPageState extends State<MainPage>
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(standardSize(context)),
-            height: fullHeight(context) / 2.8,
+            margin: EdgeInsets.all(xlargeSize(context)),
+            height: fullHeight(context) / 2.4,
             width: fullWidth(context),
-            child: Image.asset(FirstPhoto),
+            decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(image: AssetImage(FirstPhoto),
+            fit: BoxFit.cover)
+            ),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
@@ -109,7 +113,7 @@ class MainPageState extends State<MainPage>
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
+            margin: EdgeInsets.symmetric(horizontal: mediumSize(context)),
             child: Divider(
               color: Colors.grey.shade800,
               thickness: 1,
@@ -155,13 +159,13 @@ class MainPageState extends State<MainPage>
                             color: Colors.white),
                       ),
                       Text(
-                        "           Available Now",
+                        "              Available Now",
                         style: TextStyle(
                             fontSize: fullWidth(context) / 20,
                             color: Colors.white),
                       ),
                       Text(
-                        "                Culture and Music",
+                        "                    Culture and Music",
                         style: TextStyle(
                             fontSize: fullWidth(context) / 30,
                             color: Colors.white),
