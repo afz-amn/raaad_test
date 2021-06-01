@@ -16,6 +16,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
+  stacked: ^2.1.7
 
 
 dev_dependencies:
