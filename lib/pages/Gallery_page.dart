@@ -48,7 +48,7 @@ class PhotosItem extends StatelessWidget{
      width: xSmallSize(context),
      height: 250,
      padding: EdgeInsets.all(smallSize(context)),
-
+//
      child: Row(
        children: [
          Container(
