@@ -45,16 +45,16 @@ class PhotosItem extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
    return Container(
-     width: fullWidth(context),
+     width: xSmallSize(context),
      height: 250,
+     padding: EdgeInsets.all(smallSize(context)),
 
      child: Row(
-       crossAxisAlignment: CrossAxisAlignment.start,
        children: [
          Container(
-           width: fullWidth(context),
+
            height: 200,
-           margin: EdgeInsets.all(smallSize(context)),
+           margin: EdgeInsets.only(left: largeSize(context)),
            child: Row(
              children: [
                Image.asset(FirstPhotoGallery),
@@ -62,7 +62,7 @@ class PhotosItem extends StatelessWidget{
            ),
          ),
          Container(
-           width: fullWidth(context),
+           width: largeSize(context),
            height: 100,
            margin: EdgeInsets.all(smallSize(context)),
            child: Row(
