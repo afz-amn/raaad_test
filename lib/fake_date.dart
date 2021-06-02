@@ -1,7 +1,9 @@
 import 'package:radio/models/gallery.dart';
+import 'package:radio/pages/youtube_channel/Youtube.dart';
 
 import 'models/contact_us_model.dart';
 import 'models/podcast.dart';
+import 'models/youtube_item.dart';
 
 List<Podcast> podcastList() {
   List<Podcast>? podcasts = [];
@@ -42,6 +44,9 @@ List<Podcast> podcastList() {
   return podcasts;
 }
 
+
+
+
 List<Gallery> galleyList() {
   List<Gallery> galleries = [];
 
@@ -72,4 +77,14 @@ List<ContactUsModel> ContactUsModelList() {
   return contactUs;
 }
 
+List<YoutubeChannel> youtubeChannelList(){
+  List<YoutubeChannel>? youtubeChannels = [];
 
+  youtubeChannels.add(YoutubeChannel("music and culture ", 0, "imageUrl", "music and culture.first meeting"));
+  youtubeChannels.add(YoutubeChannel("music and culture ", 0, "imageUrl", "music and culture.first meeting"));
+  youtubeChannels.add(YoutubeChannel("music and culture ", 0, "imageUrl", "music and culture.first meeting"));
+  youtubeChannels.add(YoutubeChannel("music and culture ", 0, "imageUrl", "music and culture.first meeting"));
+  youtubeChannels.add(YoutubeChannel("music and culture ", 0, "imageUrl", "music and culture.first meeting"));
+
+  return youtubeChannels;
+}
