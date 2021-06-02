@@ -59,20 +59,22 @@ class PodcastItemWidget extends StatelessWidget {
             builder: (context) => MainPage(),
           )),
       child: Container(
-        margin: EdgeInsets.only(top: smallSize(context),bottom: smallSize(context),left: smallSize(context)),
+        margin: EdgeInsets.only(bottom: smallSize(context),left: smallSize(context)),
+        //color: Colors.grey.shade900,
         child: Row(
+
           children: [
             //foto.........
             Container(
-              margin: EdgeInsets.only(top: xxlargeSize(context),left: xxlargeSize(context),
-              right: smallSize(context), bottom: smallSize(context)),
+              margin: EdgeInsets.only(left: xxlargeSize(context),
+              right: smallSize(context), bottom: smallSize(context),top: xxSmallSize(context)),
               child: Row(
                 children: [
                   Column(
                     children: [
                       Container(
                         width: 150,
-                        height: 100,
+                        height: 80,
                         decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover,
                             image: AssetImage(FirstPhotoGallery)),borderRadius: BorderRadius.all(Radius.circular(8.0)),
                         ),
