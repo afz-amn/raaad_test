@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:radio/models/gallery.dart';
 import 'package:radio/pages/gallery/gallery_viewmodel.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
@@ -32,9 +33,9 @@ class GalleryPage extends StatelessWidget {
             SliverList(
                 delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return PhotosItem();
+                return PhotosItem(model.data![index]);
               },
-              childCount: 15,
+              childCount: model.data?.length ?? 0,
             ))
           ],
         ),
@@ -44,6 +45,10 @@ class GalleryPage extends StatelessWidget {
 }
 
 class PhotosItem extends StatelessWidget {
+  final Gallery item;
+
+  PhotosItem(this.item);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -58,13 +63,14 @@ class PhotosItem extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
-                    image: AssetImage(FirstPhotoGallery), fit: BoxFit.cover)),
+                    image: AssetImage(item.imagePath), fit: BoxFit.cover)),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: mediumSize(context),vertical: smallSize(context)),
+            margin: EdgeInsets.symmetric(
+                horizontal: mediumSize(context), vertical: smallSize(context)),
             alignment: Alignment.centerLeft,
             child: Text(
-              " First Photo",
+              item.title,
               style: TextStyle(color: Colors.white, fontSize: 17),
             ),
           ),
