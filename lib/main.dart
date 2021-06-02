@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
               toolbarTextStyle: TextStyle(color: Colors.white),
               centerTitle: true,
               elevation: 0)),
-      home: GalleryPage (),
+      home: MainPage (),
     );
   }
 }

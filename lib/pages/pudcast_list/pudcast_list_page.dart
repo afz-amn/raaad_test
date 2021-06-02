@@ -23,7 +23,8 @@ class PodcastListPage extends StatelessWidget {
                     pinned: true,
                     stretch: true,
                     leading: Icon(Icons.search,color: Colors.white,),
-                    title: Text("Podcast" , style: TextStyle(color: Colors.white),),
+                    title: Text("Podcast" , style: TextStyle(color: Colors.white
+                    ,fontSize: 15),),
                     actions: [
                       Icon(Icons.share_sharp,color: Colors.white,)
                     ],

@@ -25,6 +25,7 @@ class GalleryPage extends StatelessWidget {
                   "Gallery",
                   style: TextStyle(color: Colors.white70),
                 ),
+                centerTitle: true,
                 stretchModes: [StretchMode.zoomBackground],
                 background: Image.network(
                     'https://i.pinimg.com/originals/ee/d8/79/eed87935929cba829b0df65c20ba80f5.jpg'),
@@ -44,6 +45,8 @@ class GalleryPage extends StatelessWidget {
   }
 }
 
+
+
 class PhotosItem extends StatelessWidget {
   final Gallery item;
 
@@ -61,13 +64,13 @@ class PhotosItem extends StatelessWidget {
             height: 200,
             width: fullWidth(context),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                image: DecorationImage(
-                    image: AssetImage(item.imagePath), fit: BoxFit.cover)),
+            borderRadius: BorderRadius.circular(12),
+            image: DecorationImage(
+            image: AssetImage(item.imagePath), fit: BoxFit.cover)),
           ),
           Container(
             margin: EdgeInsets.symmetric(
-                horizontal: mediumSize(context), vertical: smallSize(context)),
+            horizontal: mediumSize(context), vertical: smallSize(context)),
             alignment: Alignment.centerLeft,
             child: Text(
               item.title,

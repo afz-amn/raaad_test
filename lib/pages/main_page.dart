@@ -7,7 +7,7 @@ import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 
 import 'Gallery_page.dart';
-import 'contacts_page.dart';
+import 'contact_us/contacts_page.dart';
 
 class MainPage extends StatefulWidget {
   @override

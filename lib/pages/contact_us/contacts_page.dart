@@ -2,22 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
+import 'package:stacked/stacked.dart';
+
+import 'contact_us_viewmodel.dart';
 
 class ContactsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
+   @override
+   Widget build(BuildContext context){
+     return ViewModelBuilder<ContactListVM>.reactive(
+         viewModelBuilder: () => ContactListVM(),
+         builder: (context, model, child) => Scaffold(
+         resizeToAvoidBottomInset: true,
 
-        appBar: AppBar(
+          appBar: AppBar(
 
-          title: Image.asset(contactUs,
+           title: Image.asset(contactUs,
+            ),
           ),
-        ),
         
-        body: Container(
-          height: fullHeight(context),
-          child: ListView(
+            body: Container(
+            height: fullHeight(context),
+            child: ListView(
             children: [
 
               Container(
@@ -85,19 +90,22 @@ class ContactsPage extends StatelessWidget {
                 ),
               ),
               Container(
-
-                decoration: BoxDecoration(shape: BoxShape.circle,color: Colors.blue),
+                margin: EdgeInsets.all(largeSize(context)),
+                decoration: BoxDecoration(shape: BoxShape.rectangle,color: Colors.grey,
+                borderRadius: BorderRadius.circular(4)),
                 child: InkWell(
-                  splashColor: Colors.green, // splash color
+                  splashColor: Colors.green.shade300, // splash color
                   onTap: () {}, // button pressed
                   child: Container(
                     padding: EdgeInsets.all(10),
-
+                    width: fullWidth(context),
+                    height: 40,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+
                       children: <Widget>[
-                        Icon(Icons.call), // icon
-                        Text("Send"), // text
+                       // icon
+                        Text("Send",textAlign: TextAlign.center,),
+                        // text
                       ],
                     ),
                   ),
@@ -106,6 +114,6 @@ class ContactsPage extends StatelessWidget {
             ],
           ),
         ),
-    );
+    ));
   }
 }

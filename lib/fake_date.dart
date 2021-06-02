@@ -1,5 +1,6 @@
 import 'package:radio/models/gallery.dart';
 
+import 'models/contact_us_model.dart';
 import 'models/podcast.dart';
 
 List<Podcast> podcastList() {
@@ -55,3 +56,20 @@ List<Gallery> galleyList() {
 
   return galleries;
 }
+
+List<ContactUsModel> ContactUsModelList() {
+  List<ContactUsModel> contactUs = [];
+
+  contactUs.add(ContactUsModel(0, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", ));
+  contactUs.add(ContactUsModel(1, "assets/firstPhoto.jpg", "title", "subtitle",));
+  contactUs.add(ContactUsModel(2, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", ));
+  contactUs.add(ContactUsModel(3, "assets/photoGallery.jpg", "title", "subtitle",));
+  contactUs.add(ContactUsModel(4, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", ));
+  contactUs.add(ContactUsModel(5, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", ));
+  contactUs.add(ContactUsModel(6, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", ));
+  contactUs.add(ContactUsModel(7, "assets/firstPhoto.jpg", "title", "subtitle", ));
+
+  return contactUs;
+}
+
+
