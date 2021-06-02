@@ -12,184 +12,63 @@ class GalleryPage extends StatelessWidget {
     return ViewModelBuilder<GalleryViewModel>.reactive(
         viewModelBuilder: () => GalleryViewModel(),
         builder: (context, model, child) => Scaffold(
-              backgroundColor: Colors.grey.shade900,
-              body: Column(
-                children: [
-                  Container(
-                    margin:
-                        EdgeInsets.symmetric(horizontal: smallSize(context)),
-                    child: Divider(
-                      color: Colors.grey.shade800,
-                      thickness: 1,
-                      height: 0.5,
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: xxlargeSize(context), left: xxlargeSize(context)),
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          backgroundColor: Colors.grey.shade900,
+          appBar: AppBar(
+            backgroundColor: Colors.grey.shade900,
+            leading: IconButton(icon: Icon(Icons.search,color: Colors.white,),
+              onPressed: () {},),
+            title: Text("Gallery",style: TextStyle(color: Colors.white),),
+            actions: [
+              IconButton(icon: Icon(Icons.share_sharp,color: Colors.white,), onPressed: (){}),
+            ],
+            centerTitle: true,
+            elevation: 0,
+          ),
+          body: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: largeSize(context),left:largeSize(context),right: largeSize(context) ),
+                width: fullWidth(context),
+                height: 340,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(21),
+                  color: Colors.black38,
+                ),
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: largeSize(context),left:largeSize(context),right: largeSize(context) ),
+                      width: largeSize(context),
+                      height: 210,
+
+                      child: Stack(
                         children: [
-                          Column(
-                            children: [
-                              Text(
-                                "Gallery",
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
+                          Column(children: [
+                            Align(
+                              alignment: Alignment.topCenter,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: DecorationImage(
+                                      image: AssetImage(FirstPhotoGallery),
+                                      fit: BoxFit.fill
+                                  ),),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],),
+
                         ],
                       ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: xxlargeSize(context),
-                        left: smallSize(context),
-                        right: smallSize(context)),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: 150,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image:
-                                        AssetImage(HoghogheBasharPhotoGallery)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0)),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: xxlargeSize(context)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Human rights",
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15),
-                              ),
-                              Text(
-                                "First meeting - March",
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: xxlargeSize(context),
-                        left: smallSize(context),
-                        right: smallSize(context)),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: 150,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(FirstPhotoGallery)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0)),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: xxlargeSize(context)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Human rights ",
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15),
-                              ),
-                              Text(
-                                "second meeting - April",
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: xxlargeSize(context),
-                        left: smallSize(context),
-                        right: smallSize(context)),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              width: 150,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(ThirdPhotoGallery)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8.0)),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: xxlargeSize(context)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Traditional Music ",
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15),
-                              ),
-                              Text(
-                                " First meeting - Mai",
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ));
+                    )
+
+                  ],
+                ),
+
+              )
+            ],
+          ),
+        ));
   }
 }
