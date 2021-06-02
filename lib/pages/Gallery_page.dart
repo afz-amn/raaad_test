@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -55,7 +53,8 @@ class PhotosItem extends StatelessWidget{
        children: [
          Container(
            width: fullWidth(context),
-           height: 280,
+           height: 200,
+           margin: EdgeInsets.all(smallSize(context)),
            child: Row(
              children: [
                Image.asset(FirstPhotoGallery),
@@ -65,6 +64,7 @@ class PhotosItem extends StatelessWidget{
          Container(
            width: fullWidth(context),
            height: 100,
+           margin: EdgeInsets.all(smallSize(context)),
            child: Row(
              children: [
              Text(" First Photo", style: TextStyle(color: Colors.white,
