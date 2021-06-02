@@ -19,23 +19,17 @@ class PodcastListPage extends StatelessWidget {
                 physics: BouncingScrollPhysics(),
                 slivers: [
                   SliverAppBar(
-                    expandedHeight: 350,
+                    expandedHeight: 100,
                     pinned: true,
                     stretch: true,
-                    leading: Icon(
-                      Icons.mode_rounded,
-                      color: Colors.deepPurple.shade800,
-                    ),
+                    leading: Icon(Icons.search,color: Colors.white,),
+                    title: Text("Podcast" , style: TextStyle(color: Colors.white),),
+                    actions: [
+                      Icon(Icons.share_sharp,color: Colors.white,)
+                    ],
                     flexibleSpace: FlexibleSpaceBar(
-                        title: Text(
-                          "        Lindsy Stirling",
-                          style: TextStyle(
-                              color: Colors.purple.shade900, fontSize: 15),
-                        ),
                         stretchModes: [StretchMode.zoomBackground],
-                        background: Container(
-                          child: Image.asset(microphone),
-                        )),
+                       ),
                   ),
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
@@ -65,47 +59,47 @@ class PodcastItemWidget extends StatelessWidget {
             builder: (context) => MainPage(),
           )),
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: largeSize(context)),
+        margin: EdgeInsets.only(top: smallSize(context),bottom: smallSize(context),left: smallSize(context)),
         child: Row(
           children: [
-            Text(
-              podcast.id.toString(),
-              style: TextStyle(color: Colors.white),
-            ),
-
             //foto.........
             Container(
-              width: 60,
-              margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
-              height: 60,
-              child: Image.asset(
-                podcastPhotos,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              margin: EdgeInsets.only(top: xxlargeSize(context),left: xxlargeSize(context),
+              right: smallSize(context), bottom: smallSize(context)),
+              child: Row(
                 children: [
-                  Text(podcast.musicName,
-                      style: TextStyle(color: Colors.white)),
-                  Text(podcast.artistName,
-                      style: TextStyle(color: Colors.white)),
+                  Column(
+                    children: [
+                      Container(
+                        width: 150,
+                        height: 100,
+                        decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover,
+                            image: AssetImage(FirstPhotoGallery)),borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: xlargeSize(context),top: smallSize(context),right: smallSize(context)),
+                    width: 150,
+                    height: 130,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Human rights",style: TextStyle(
+                            color: Colors.white70,fontWeight: FontWeight.w500 ,fontSize: 18),),
+                        Text("second meeting - April",style: TextStyle(
+                            color: Colors.white70,fontWeight: FontWeight.w500,fontSize: 12),),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
+
             Expanded(child: SizedBox()),
-            Icon(
-              Icons.arrow_downward_outlined,
-              color: Colors.white,
-            ),
-            Container(
-                margin: EdgeInsets.only(left: xSmallSize(context)),
-                child: Icon(
-                  Icons.more_vert,
-                  color: Colors.white,
-                )),
+
+            
           ],
         ),
         width: fullWidth(context),

@@ -32,7 +32,7 @@ class MainPageState extends State<MainPage>
               AppBar(
                 title: Text(
                   "Radio Tiam",
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: TextStyle(color: Colors.white, fontSize: 17 , fontWeight: FontWeight.bold),
                 ),
                 leading: IconButton(
                     onPressed: () {
@@ -83,7 +83,7 @@ class MainPageState extends State<MainPage>
                 Navigator.pop(context);
               },
               icon: Icon(
-                Icons.arrow_back_ios_sharp,
+                Icons.share_outlined,
                 color: Colors.white,
               )),
         ],
@@ -176,49 +176,60 @@ class MainPageState extends State<MainPage>
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: smallSize(context)),
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.grey, width: 2)),
-            width: fullWidth(context) / 4,
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.play_arrow,
-                color: Colors.white,
-                size: fullWidth(context) / 6,
-              ),
-            ),
-            height: fullWidth(context) / 4,
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  Icons.volume_mute_rounded,
-                  color: Colors.grey,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(xxlargeSize(context)),
+                      child: Icon(
+                        Icons.arrow_back_ios_rounded
+                        ,
+                        color: Colors.white70,
+                        size: 30,
+                      ),
+                    ),
+                  ]
+
                 ),
-                Expanded(
-                  child: Slider(
-                    activeColor: Colors.grey,
-                    value: valueCurrent,
-                    onChanged: (value) {
-                      setState(() {
-                        valueCurrent = value;
-                      });
-                    },
+              ),
+              Container(
+                margin: EdgeInsets.all(xxlargeSize(context)),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey, width: 2)),
+                width: fullWidth(context) / 4,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.play_arrow,
+                    color: Colors.white70,
+                    size: fullWidth(context) / 6,
                   ),
                 ),
-                Icon(
-                  Icons.volume_down_rounded,
-                  color: Colors.grey,
+                height: fullWidth(context) / 4,
+              ),
+              Container(
+                child: Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(xxlargeSize(context)),
+                        child: Icon(
+                          Icons.arrow_forward_ios_rounded
+                          ,
+                          color: Colors.white70,
+                          size: 30,
+                        ),
+                      ),
+                    ]
+
                 ),
-              ],
-            ),
-          )
+              ),
+            ],
+          ),
+
         ],
       ),
     );
@@ -234,18 +245,18 @@ Widget drawerItem(IconData icon, String text, BuildContext context) {
       children: [
         Icon(
           icon,
-          color: Colors.grey,
+          color: Colors.white,
         ),
         Container(
             margin: EdgeInsets.only(left: smallSize(context)),
             child: Text(
               text,
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.white,fontSize: 17),
             )),
         Expanded(child: SizedBox()),
         Icon(
           Icons.arrow_forward_ios_sharp,
-          color: Colors.grey,
+          color: Colors.white,
         )
       ],
     ),

@@ -33,15 +33,6 @@ class GalleryPage extends StatelessWidget {
                         children: [
                           Column(
                             children: [
-                              Icon(
-                                Icons.backspace_outlined,
-                                size: 23,
-                                color: Colors.white70,
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
                               Text(
                                 "Gallery",
                                 style: TextStyle(
@@ -51,15 +42,6 @@ class GalleryPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Column(
-                            children: [
-                              Container(
-                                  margin: EdgeInsets.only(
-                                      right: xlargeSize(context)),
-                                  child: Icon(Icons.search,
-                                      color: Colors.white70)),
-                            ],
-                          )
                         ],
                       ),
                     ),
