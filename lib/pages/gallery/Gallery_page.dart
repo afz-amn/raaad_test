@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,65 +12,68 @@ class GalleryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<GalleryViewModel>.reactive(
-        viewModelBuilder: () => GalleryViewModel(),
-        builder: (context, model, child) => Scaffold(
-          backgroundColor: Colors.grey.shade900,
-          appBar: AppBar(
-            backgroundColor: Colors.grey.shade900,
-            leading: IconButton(icon: Icon(Icons.search,color: Colors.white,),
-              onPressed: () {},),
-            title: Text("Gallery",style: TextStyle(color: Colors.white),),
-            actions: [
-              IconButton(icon: Icon(Icons.share_sharp,color: Colors.white,), onPressed: (){}),
-            ],
-            centerTitle: true,
-            elevation: 0,
-          ),
-          body: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: largeSize(context),left:largeSize(context),right: largeSize(context) ),
-                width: fullWidth(context),
-                height: 340,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(21),
-                  color: Colors.black38,
-                ),
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: largeSize(context),left:largeSize(context),right: largeSize(context) ),
-                      width: largeSize(context),
-                      height: 210,
+      viewModelBuilder: () => GalleryViewModel(),
+      builder: (context, model, child) => Scaffold(
+        body: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            SliverAppBar(
+              expandedHeight: 100,
+              pinned: true,
+              stretch: true,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text("Gallery", style: TextStyle(color: Colors.white70),),
+                stretchModes: [
+                  StretchMode.zoomBackground
+                ],
+                background: Image.network('https://i.pinimg.com/originals/ee/d8/79/eed87935929cba829b0df65c20ba80f5.jpg'),
+              ),
+            ),
+            SliverList(delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                return PhotosItem();
+              },
+              childCount: 15,
+            ))
+          ],
+        ),
 
-                      child: Stack(
-                        children: [
-                          Column(children: [
-                            Align(
-                              alignment: Alignment.topCenter,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  image: DecorationImage(
-                                      image: AssetImage(FirstPhotoGallery),
-                                      fit: BoxFit.fill
-                                  ),),
-                              ),
-                            ),
-                          ],),
-
-                        ],
-                      ),
-                    )
-
-                  ],
-                ),
-
-              )
-            ],
-          ),
-        ));
+      ),
+    );
   }
+
+}
+class PhotosItem extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: fullWidth(context),
+      height: 250,
+      color: Colors.black38,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: fullWidth(context),
+            height: 280,
+            child: Row(
+              children: [
+                Image.asset(FirstPhotoGallery),
+              ],
+            ),
+          ),
+          Container(
+            width: fullWidth(context),
+            height: 100,
+            child: Row(
+              children: [
+                Text(" First Photo", style: TextStyle(color: Colors.white,
+                    fontSize: 17),),
+              ],),
+          ),
+        ],
+      ),
+    );
+  }
+
 }
