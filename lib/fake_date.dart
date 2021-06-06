@@ -49,15 +49,19 @@ List<Podcast> podcastList() {
 
 List<Gallery> galleyList() {
   List<Gallery> galleries = [];
+  galleries.add(Gallery(0, "assets/Radio8.jpg", "Radio Tiam _ Audiogate ", "subtitle", DateTime.now()));
+  galleries.add(Gallery(1, "assets/PhotoHoghogheBashar.jpg", "Das erste Treffen im Radio Orange Studio", "subtitle", DateTime.now()));
+  galleries.add(Gallery(2, "assets/firstPhoto.jpg", " Die erste Aufführung von Sahar im Radio ", "subtitle", DateTime.now()));
+  galleries.add(Gallery(3, "assets/Radio3.jpg", "Die erste Sitzung zum Verhältnis von Kultur und Geschichte", "subtitle", DateTime.now()));
+  galleries.add(Gallery(4, "assets/photoGallery.jpg", "Die zweite Sitzung mit Armin über Traditional Musik", "subtitle", DateTime.now()));
+  galleries.add(Gallery(5, "assets/Radio1.jpg", "Die zweite Sitzung zum Verhältnis von Kultur und Geschichte", "subtitle", DateTime.now()));
+  galleries.add(Gallery(6, "assets/Radio2.jpg", "Das erste Treffen mit Herr. Wikler ", "subtitle", DateTime.now()));
+  galleries.add(Gallery(7, "assets/Radio3.jpg", "Das erste Interview mit Babak ", "subtitle", DateTime.now()));
+  galleries.add(Gallery(8, "assets/Radio4.jpg", "Das erste Treffen mit Herr. Kasra ", "subtitle", DateTime.now()));
+  galleries.add(Gallery(9, "assets/Radio6.JPG", "Die erste Neujahrsvorstellung mit Sahar", "subtitle", DateTime.now()));
+  galleries.add(Gallery(10, "assets/Radio7.JPG", "Live-Radioprogramm im Radio Orange Studio ", "subtitle", DateTime.now()));
 
-  galleries.add(Gallery(0, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", DateTime.now()));
-  galleries.add(Gallery(1, "assets/firstPhoto.jpg", "title", "subtitle", DateTime.now()));
-  galleries.add(Gallery(2, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", DateTime.now()));
-  galleries.add(Gallery(3, "assets/photoGallery.jpg", "title", "subtitle", DateTime.now()));
-  galleries.add(Gallery(4, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", DateTime.now()));
-  galleries.add(Gallery(5, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", DateTime.now()));
-  galleries.add(Gallery(6, "assets/PhotoHoghogheBashar.jpg", "title", "subtitle", DateTime.now()));
-  galleries.add(Gallery(7, "assets/firstPhoto.jpg", "title", "subtitle", DateTime.now()));
+
 
   return galleries;
 }

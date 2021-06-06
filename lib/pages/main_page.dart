@@ -96,7 +96,7 @@ class MainPageState extends State<MainPage>
         children: [
           Container(
             margin: EdgeInsets.all(xlargeSize(context)),
-            height: fullHeight(context) / 2.4,
+            height: fullHeight(context) / 2.8,
             width: fullWidth(context),
             decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),

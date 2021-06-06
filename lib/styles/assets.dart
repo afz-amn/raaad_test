@@ -12,4 +12,6 @@ const contactUs = "assets/contactUs.jpg";
 const microphone = "assets/microphone.jpg";
 const youtube = "assets/youtube.jpg";
 const youtube2 = "assets/y.jpg";
+const GalleryPhoto1 = "assets/Radio1.jpg";
+const GalleryPhoto2 = "assets/Radio1.jpg";
 

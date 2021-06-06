@@ -23,7 +23,8 @@ class GalleryPage extends StatelessWidget {
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   "Gallery",
-                  style: TextStyle(color: Colors.white70),
+                  style: TextStyle(color: Colors.white70,
+                  fontStyle: FontStyle.italic),
                 ),
                 centerTitle: true,
                 stretchModes: [StretchMode.zoomBackground],
@@ -57,9 +58,11 @@ class PhotosItem extends StatelessWidget {
     return Container(
       width: fullWidth(context),
       padding: EdgeInsets.all(smallSize(context)),
+
       child: Column(
         children: [
           Container(
+            color: Colors.black,
             margin: EdgeInsets.symmetric(horizontal: mediumSize(context)),
             height: 200,
             width: fullWidth(context),
@@ -69,6 +72,7 @@ class PhotosItem extends StatelessWidget {
             image: AssetImage(item.imagePath), fit: BoxFit.cover)),
           ),
           Container(
+            color: Colors.black,
             margin: EdgeInsets.symmetric(
             horizontal: mediumSize(context), vertical: smallSize(context)),
             alignment: Alignment.centerLeft,
