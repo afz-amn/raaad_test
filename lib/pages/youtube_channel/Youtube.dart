@@ -12,47 +12,40 @@ class YoutubeCHannelPage extends StatelessWidget{
     return ViewModelBuilder<YoutubeListVM>.reactive(
       viewModelBuilder: () => YoutubeListVM() ,
         builder: (context, model, child) => Scaffold(
-            backgroundColor: Colors.black,
-            body: CustomScrollView(
+          backgroundColor: Colors.black,
+          body: CustomScrollView(
             physics: BouncingScrollPhysics(),
             slivers: [
-            SliverAppBar(
-            expandedHeight: 250,
-            pinned: true,
-            stretch: true,
-            backgroundColor: Colors.black
-            ,
-                leading: Icon(
-                Icons.menu,
-                color: Colors.black87,
-                ),
+              SliverAppBar(
+                backgroundColor: Colors.black38,
+                expandedHeight: 100,
+                pinned: true,
+                stretch: true,
+                leading: Icon(Icons.search,color: Colors.white,),
+                title: Text("Youtube Channel" , style: TextStyle(color: Colors.white
+                    ,fontSize: 18 ,
+                      fontStyle: FontStyle.italic),),
+                actions: [
+                  Icon(Icons.share_sharp,color: Colors.white,)
+                ],
                 flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                "       Youtube Videos",
-                style: TextStyle(color: Colors.red,
-                fontSize: 15,
-                fontStyle: FontStyle.italic
+                  stretchModes: [StretchMode.zoomBackground],
                 ),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                    return YoutubeChannelItem(model.data![index]);
+                  },
+                  childCount: model.data?.length ?? 0,
                 ),
-                stretchModes: [ StretchMode.zoomBackground],
-                background: Container(
-                child:
-                Image.asset(microphone),
-                )),
-                ),
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index){
-                      return YoutubeChannelItem(model.data![index]);
-                      },
-                      childCount: model.data?.length ?? 0,
-                      )),
-                    ],
-                    ),
-                    ), );
+              ),
+
+            ],
+          ),
+        ));
   }
 }
-
 
 
 class YoutubeChannel {
@@ -63,6 +56,8 @@ class YoutubeChannel {
 
   YoutubeChannel(this.ArtistName, this.id, this.imageUrl, this.videoName);
 }
+
+
 class YoutubeChannelItem extends StatelessWidget{
   final YoutubeChannel youtubeChannel;
 
@@ -75,36 +70,52 @@ class YoutubeChannelItem extends StatelessWidget{
           context,
           MaterialPageRoute(builder: (context) => MainPage(),
           )),
-      child:Container(
-        margin:EdgeInsets.symmetric(horizontal: largeSize(context)),
+
+      child: Container(
+        margin: EdgeInsets.only(bottom: smallSize(context),left: smallSize(context)),
+        //color: Colors.grey.shade900,
         child: Row(
+
           children: [
-            Text(
-              youtubeChannel.id.toString(),
-              style: TextStyle(color: Colors.white),
-            ),
             //foto.........
             Container(
-              width: 60,
-              margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
-              height: 60,
-              child:
-              Image.asset( youtube2 ,fit: BoxFit.cover,),
-            ),
-
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              margin: EdgeInsets.only(left: xxlargeSize(context),
+                  right: smallSize(context), bottom: smallSize(context),top: xxSmallSize(context)),
+              child: Row(
                 children: [
-                  Text(youtubeChannel.videoName,
-                      style: TextStyle(color: Colors.red)),
-                  Text(youtubeChannel.ArtistName,
-                      style: TextStyle(color: Colors.red)),
+                  Column(
+                    children: [
+                      Container(
+                        width: 150,
+                        height: 80,
+                        decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover,
+                            image: AssetImage(youtubeChannel.imageUrl)),borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: xlargeSize(context),top: smallSize(context),right: smallSize(context)),
+                    width: 150,
+                    height: 130,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(youtubeChannel.ArtistName,style: TextStyle(
+                            color: Colors.white,fontWeight: FontWeight.w500 ,fontSize: 18,
+                            fontStyle: FontStyle.italic),),
+                        Text(youtubeChannel.videoName,style: TextStyle(
+                            color: Colors.white70,fontWeight: FontWeight.w500,fontSize: 12,
+                            fontStyle: FontStyle.italic),),
+                      ],
+                    ),
+                  ),
+
+
+
                 ],
               ),
             ),
-
             Expanded(child: SizedBox()),
 
           ],
@@ -112,6 +123,7 @@ class YoutubeChannelItem extends StatelessWidget{
         width: fullWidth(context),
         height: 100,
       ),
+
     );
   }
 }

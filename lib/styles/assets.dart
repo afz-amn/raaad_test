@@ -14,4 +14,17 @@ const youtube = "assets/youtube.jpg";
 const youtube2 = "assets/y.jpg";
 const GalleryPhoto1 = "assets/Radio1.jpg";
 const GalleryPhoto2 = "assets/Radio1.jpg";
+const ArtOfIran = "assets/ArtOfIran.JPG";
+const Iran = "assets/Iran.JPG";
+const Carpet = "assets/Carpet.JPG";
+const Literature = "assets/Literature.JPG";
+const Stock = "assets/Stock.JPG";
+const AncientIrnPainting = "assets/AncientIranianPaintings.JPG";
+const Shiraz = "assets/Shiraz.JPG";
+const Nature = "assets/Nature2.JPG";
+const travel = "assets/travel.JPG";
+const miniature = "assets/mini.JPG";
+const music = "assets/music1.JPG";
+const shahnameh = "assets/shahnameh.JPG";
+const podcast = "assets/podcastPhoto.JPG";
 

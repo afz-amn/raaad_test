@@ -15,9 +15,8 @@ class ContactsPage extends StatelessWidget {
          resizeToAvoidBottomInset: true,
 
           appBar: AppBar(
-
-           title: Image.asset(contactUs,
-            ),
+            backgroundColor: Colors.black38,
+            title: Image.asset(contactUs,fit: BoxFit.fitWidth,),
           ),
         
             body: Container(

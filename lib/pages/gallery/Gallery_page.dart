@@ -17,13 +17,14 @@ class GalleryPage extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
+              backgroundColor: Colors.black38,
               expandedHeight: 100,
               pinned: true,
               stretch: true,
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   "Gallery",
-                  style: TextStyle(color: Colors.white70,
+                  style: TextStyle(color: Colors.white70, fontSize: 17,
                   fontStyle: FontStyle.italic),
                 ),
                 centerTitle: true,
@@ -78,7 +79,7 @@ class PhotosItem extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               item.title,
-              style: TextStyle(color: Colors.white, fontSize: 17),
+              style: TextStyle(color: Colors.white, fontSize: 17, fontStyle: FontStyle.italic),
             ),
           ),
         ],
