@@ -9,14 +9,15 @@ class Podcast {
   Podcast(this.artistName, this.id, this.imageUrl, this.musicName,
       {this.isLiked = false, this.length = 0});
 
-  Podcast fromJson(Map<String, dynamic> json){
+  static Podcast fromJson(Map<String, dynamic> json) {
+
     return Podcast(
       json['id'],
       json['imageUrl'],
       json['artistName'],
       json['musicName'],
-      json['isLiked'],
-      json['length'],
+      isLiked: json['isLiked'],
+      length: json['length'],
     );
   }
 
@@ -30,5 +31,4 @@ class Podcast {
     data['length'] = this.length;
     return data;
   }
-
 }

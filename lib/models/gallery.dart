@@ -6,7 +6,7 @@ class Gallery {
 
   Gallery(this.id, this.imagePath, this.title, this.subTitle);
 
-  Gallery fromJson(Map<String, dynamic> json) {
+  static Gallery fromJson(Map<String, dynamic> json) {
     return Gallery(
       json['id'],
       json['imagePath'],
