@@ -32,7 +32,10 @@ class MainPageState extends State<MainPage>
               AppBar(
                 title: Text(
                   "Radio Tiam",
-                  style: TextStyle(color: Colors.white, fontSize: 17 , fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
                 ),
                 leading: IconButton(
                     onPressed: () {
@@ -47,23 +50,45 @@ class MainPageState extends State<MainPage>
                   width: fullWidth(context),
                   height: 150,
                   child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
-
-              GestureDetector(onTap: (){
-               Navigator.push(context,MaterialPageRoute(builder: (context) => PodcastListPage(),));
-              },child: drawerItem(Icons.headset_mic_sharp, "Podcast", context)),
-
-              GestureDetector(onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => YoutubeCHannelPage(), ));
-              },child:drawerItem(Icons.ondemand_video, "Youtube ", context)),
-
-              GestureDetector(onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => GalleryPage(), ));
-              },child:drawerItem(Icons.photo_camera_front, "Gallery ", context)),
-
-              GestureDetector(onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactsPage(), ));
-              },child:drawerItem(Icons.quick_contacts_mail, "Contact us", context)),
-
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PodcastListPage(),
+                        ));
+                  },
+                  child:
+                      drawerItem(Icons.headset_mic_sharp, "Podcast", context)),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => YoutubeCHannelPage(),
+                        ));
+                  },
+                  child: drawerItem(Icons.ondemand_video, "Youtube ", context)),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GalleryPage(),
+                        ));
+                  },
+                  child: drawerItem(
+                      Icons.photo_camera_front, "Gallery ", context)),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ContactsPage(),
+                        ));
+                  },
+                  child: drawerItem(
+                      Icons.quick_contacts_mail, "Contact us", context)),
             ],
           ),
         ),
@@ -99,10 +124,9 @@ class MainPageState extends State<MainPage>
             height: fullHeight(context) / 2.8,
             width: fullWidth(context),
             decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            image: DecorationImage(image: AssetImage(FirstPhoto),
-            fit: BoxFit.cover)
-            ),
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                    image: AssetImage(FirstPhoto), fit: BoxFit.cover)),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
@@ -180,19 +204,13 @@ class MainPageState extends State<MainPage>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                child: Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.all(xxlargeSize(context)),
-                      child: Icon(
-                        Icons.arrow_back_ios_rounded
-                        ,
-                        color: Colors.white70,
-                        size: 30,
-                      ),
-                    ),
-                  ]
-
+                child: Container(
+                  margin: EdgeInsets.all(xlargeSize(context)),
+                  child: Icon(
+                    Icons.arrow_back_ios_rounded,
+                    color: Colors.white70,
+                    size: 30,
+                  ),
                 ),
               ),
               Container(
@@ -212,30 +230,22 @@ class MainPageState extends State<MainPage>
                 height: fullWidth(context) / 4,
               ),
               Container(
-                child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(xxlargeSize(context)),
-                        child: Icon(
-                          Icons.arrow_forward_ios_rounded
-                          ,
-                          color: Colors.white70,
-                          size: 30,
-                        ),
-                      ),
-                    ]
-
+                child: Container(
+                  margin: EdgeInsets.all(xlargeSize(context)),
+                  child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: Colors.white70,
+                    size: 30,
+                  ),
                 ),
               ),
             ],
           ),
-
         ],
       ),
     );
   }
 }
-
 
 Widget drawerItem(IconData icon, String text, BuildContext context) {
   return Container(
@@ -252,7 +262,7 @@ Widget drawerItem(IconData icon, String text, BuildContext context) {
             margin: EdgeInsets.only(left: smallSize(context)),
             child: Text(
               text,
-              style: TextStyle(color: Colors.white,fontSize: 17),
+              style: TextStyle(color: Colors.white, fontSize: 17),
             )),
         Expanded(child: SizedBox()),
         Icon(
