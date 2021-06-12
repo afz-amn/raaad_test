@@ -9,37 +9,37 @@ List<Podcast> podcastList() {
   List<Podcast>? podcasts = [];
 
   podcasts.add(Podcast("Sahar and Reza Vatan", 0, podcast,
-      "The importance of women in the history Iranian literature",""));
+      "The importance of women in the history Iranian literature","https://dls.musicmedia.ir/ahang/Violin%20Romances_Schumann%20[%20musicmedia.ir%20].mp3"));
   podcasts.add(Podcast(
-      "Mr. Hedayat Tanian", 1, podcast, "Theater and acting in theater",""));
+      "Mr. Hedayat Tanian", 1, podcast, "Theater and acting in theater","https://dls.musicmedia.ir/ahang/Violin%20Morceaux_Boccherini%20[%20musicmedia.ir%20].mp3"));
   podcasts.add(Podcast("Mr. Mohammad Drougar", 2, podcast,
-      "Tehran's historical heritage and it's sufferings",""));
+      "Tehran's historical heritage and it's sufferings","https://dls.musicmedia.ir/ahang/Violin%20Les%20millions%20DArlequin%20Serenade%20Drigo%20[%20musicmedia.ir%20].mp3"));
   podcasts.add(Podcast(
-      "Mrs. Gita Davoodi", 3, podcast, "Conscious use of mental abilities",""));
+      "Mrs. Gita Davoodi", 3, podcast, "Conscious use of mental abilities","https://dls.musicmedia.ir/ahang/Espana_Isaac%20Albeniz%20[%20musicmedia.ir%20].mp3"));
   podcasts.add(Podcast("Mrs. Gita Davoodi", 4, podcast,
-      "How to consciously use our mental abilities?",""));
+      "How to consciously use our mental abilities?","https://dls.musicmedia.ir/ahang/Traumerei_Frantisek%20Alois%20Drdla%20[%20musicmedia.ir%20].mp3"));
   podcasts.add(Podcast(
-      "Mr. Armin Ghorbani", 5, podcast, "Books and music with management",""));
+      "Mr. Armin Ghorbani", 5, podcast, "Books and music with management","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts.add(Podcast(
-      "Mr. Hedayat Tanian", 6, podcast, "Theater and acting in theater",""));
+      "Mr. Hedayat Tanian", 6, podcast, "Theater and acting in theater","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts.add(Podcast("Mr. Karen Niaz", 7, podcast,
-      "The importance of preserving national culture and identity",""));
+      "The importance of preserving national culture and identity","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts.add(Podcast("Sahar and Reza Vatan", 8, podcast,
-      "Review current events and introduce some books",""));
+      "Review current events and introduce some books","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts
-      .add(Podcast("Reza Vatan", 9, podcast, "The power of art in society",""));
+      .add(Podcast("Reza Vatan", 9, podcast, "The power of art in society","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts
-      .add(Podcast("Katy Niknam", 10, podcast, "Folk music of southern Iran",""));
+      .add(Podcast("Katy Niknam", 10, podcast, "Folk music of southern Iran","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts.add(Podcast("Sahar and Reza Vatan", 11, podcast,
-      "Human Rights in Iran with the guests of the program",""));
+      "Human Rights in Iran with the guests of the program","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts.add(Podcast("Daniel Saket", 12, podcast,
-      "Global national solidarity and integration",""));
+      "Global national solidarity and integration","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts.add(Podcast(
-      "Saman Haghighi", 13, podcast, "The impact of music on human life",""));
+      "Saman Haghighi", 13, podcast, "The impact of music on human life","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts.add(Podcast(
-      "Mag.Nina Elahi", 14, podcast, "A review of recent development in Art",""));
+      "Mag.Nina Elahi", 14, podcast, "A review of recent development in Art","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
   podcasts.add(Podcast("Mr. Kiani and Sahar", 15, podcast,
-      "The art of mystical dance in Iranian culture",""));
+      "The art of mystical dance in Iranian culture","https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3"));
 
   return podcasts;
 }
