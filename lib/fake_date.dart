@@ -9,45 +9,49 @@ List<Podcast> podcastList() {
   List<Podcast>? podcasts = [];
 
   podcasts.add(Podcast("Sahar and Reza Vatan", 0, podcast,
-      "The importance of women in the history Iranian literature"));
+      "The importance of women in the history Iranian literature",""));
   podcasts.add(Podcast(
-      "Mr. Hedayat Tanian", 1, podcast, "Theater and acting in theater"));
+      "Mr. Hedayat Tanian", 1, podcast, "Theater and acting in theater",""));
   podcasts.add(Podcast("Mr. Mohammad Drougar", 2, podcast,
-      "Tehran's historical heritage and it's sufferings"));
+      "Tehran's historical heritage and it's sufferings",""));
   podcasts.add(Podcast(
-      "Mrs. Gita Davoodi", 3, podcast, "Conscious use of mental abilities"));
+      "Mrs. Gita Davoodi", 3, podcast, "Conscious use of mental abilities",""));
   podcasts.add(Podcast("Mrs. Gita Davoodi", 4, podcast,
-      "How to consciously use our mental abilities?"));
+      "How to consciously use our mental abilities?",""));
   podcasts.add(Podcast(
-      "Mr. Armin Ghorbani", 5, podcast, "Books and music with management"));
+      "Mr. Armin Ghorbani", 5, podcast, "Books and music with management",""));
   podcasts.add(Podcast(
-      "Mr. Hedayat Tanian", 6, podcast, "Theater and acting in theater"));
+      "Mr. Hedayat Tanian", 6, podcast, "Theater and acting in theater",""));
   podcasts.add(Podcast("Mr. Karen Niaz", 7, podcast,
-      "The importance of preserving national culture and identity"));
+      "The importance of preserving national culture and identity",""));
   podcasts.add(Podcast("Sahar and Reza Vatan", 8, podcast,
-      "Review current events and introduce some books"));
+      "Review current events and introduce some books",""));
   podcasts
-      .add(Podcast("Reza Vatan", 9, podcast, "The power of art in society"));
+      .add(Podcast("Reza Vatan", 9, podcast, "The power of art in society",""));
   podcasts
-      .add(Podcast("Katy Niknam", 10, podcast, "Folk music of southern Iran"));
+      .add(Podcast("Katy Niknam", 10, podcast, "Folk music of southern Iran",""));
   podcasts.add(Podcast("Sahar and Reza Vatan", 11, podcast,
-      "Human Rights in Iran with the guests of the program"));
+      "Human Rights in Iran with the guests of the program",""));
   podcasts.add(Podcast("Daniel Saket", 12, podcast,
-      "Global national solidarity and integration"));
+      "Global national solidarity and integration",""));
   podcasts.add(Podcast(
-      "Saman Haghighi", 13, podcast, "The impact of music on human life"));
+      "Saman Haghighi", 13, podcast, "The impact of music on human life",""));
   podcasts.add(Podcast(
-      "Mag.Nina Elahi", 14, podcast, "A review of recent development in Art "));
+      "Mag.Nina Elahi", 14, podcast, "A review of recent development in Art",""));
   podcasts.add(Podcast("Mr. Kiani and Sahar", 15, podcast,
-      "The art of mystical dance in Iranian culture"));
+      "The art of mystical dance in Iranian culture",""));
 
   return podcasts;
 }
 
 List<Gallery> galleyList() {
   List<Gallery> galleries = [];
-  galleries.add(
-      Gallery(0, "assets/Radio8.jpg", "Radio Tiam _ Audiogate ", "subtitle"));
+  galleries.add(Gallery(
+    0,
+    "assets/Radio8.jpg",
+    "Radio Tiam _ Audiogate ",
+    "subtitle"
+  ));
   galleries.add(Gallery(
     1,
     "assets/PhotoHoghogheBashar.jpg",
