@@ -1,4 +1,5 @@
 import 'package:radio/models/gallery.dart';
+import 'package:radio/models/youtube_item.dart';
 import 'package:radio/pages/youtube_channel/Youtube.dart';
 import 'package:radio/styles/assets.dart';
 
@@ -171,30 +172,30 @@ List<ContactUsModel> ContactUsModelList() {
   return contactUs;
 }
 
-List<YoutubeChannel> youtubeChannelList() {
-  List<YoutubeChannel>? youtubeChannels = [];
+List<YoutubeItem> youtubeChannelList() {
+  List<YoutubeItem>? youtubeChannels = [];
 
-  youtubeChannels.add(YoutubeChannel("Iranian Kunst", 0, ArtOfIran,
+  youtubeChannels.add(YoutubeItem("Iranian Kunst", 0, ArtOfIran,
       "Ein Blick auf die Traditionelle Iranische Kunst"));
   youtubeChannels.add(
-      YoutubeChannel("Iranian Carpet", 1, Carpet, "Nafir in Tehran, Iran"));
-  youtubeChannels.add(YoutubeChannel(
+      YoutubeItem("Iranian Carpet", 1, Carpet, "Nafir in Tehran, Iran"));
+  youtubeChannels.add(YoutubeItem(
       "Iranian Literature", 2, Literature, "Persian Art and Literature"));
-  youtubeChannels.add(YoutubeChannel(
+  youtubeChannels.add(YoutubeItem(
       "persian Tiles", 3, Stock, "Iranian decorative ceramic tiles"));
-  youtubeChannels.add(YoutubeChannel(
+  youtubeChannels.add(YoutubeItem(
       "Traditional music", 4, music, "Traditional and Folklore music of Iran"));
-  youtubeChannels.add(YoutubeChannel(
+  youtubeChannels.add(YoutubeItem(
       "Shiraz Art", 5, Shiraz, "Critique of Shiraz antiquities"));
-  youtubeChannels.add(YoutubeChannel(
+  youtubeChannels.add(YoutubeItem(
       "iranian miniature", 6, miniature, "Let's talk about miniature"));
-  youtubeChannels.add(YoutubeChannel("Ancient Iran Paintings", 7,
+  youtubeChannels.add(YoutubeItem("Ancient Iran Paintings", 7,
       AncientIrnPainting, "Critique of Iranian traditional art"));
-  youtubeChannels.add(YoutubeChannel("Nature of Iran", 8, Nature,
+  youtubeChannels.add(YoutubeItem("Nature of Iran", 8, Nature,
       "Let's talk about nature and mountains of Iran"));
-  youtubeChannels.add(YoutubeChannel(
+  youtubeChannels.add(YoutubeItem(
       "Travel", 9, travel, "Let's talk about travel, a new experience"));
-  youtubeChannels.add(YoutubeChannel(
+  youtubeChannels.add(YoutubeItem(
       "Shahnameh Ferdowsi", 10, shahnameh, "Great Iranian Poet, Shahnameh"));
 
   return youtubeChannels;

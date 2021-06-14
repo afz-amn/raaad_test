@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:radio/models/youtube_item.dart';
 import 'package:radio/pages/main_page.dart';
 import 'package:radio/pages/youtube_channel/youtube_viewmodel.dart';
 import 'package:radio/styles/assets.dart';
@@ -56,17 +57,18 @@ class YoutubeCHannelPage extends StatelessWidget {
   }
 }
 
-class YoutubeChannel {
-  int id;
-  String imageUrl;
-  String ArtistName;
-  String videoName;
 
-  YoutubeChannel(this.ArtistName, this.id, this.imageUrl, this.videoName);
-}
+//class YoutubeChannel {
+//int id;
+// String imageUrl;
+//String ArtistName;
+//String videoName;
+
+//YoutubeChannel(this.ArtistName, this.id, this.imageUrl, this.videoName);
+//}
 
 class YoutubeChannelItem extends StatelessWidget {
-  final YoutubeChannel youtubeChannel;
+  final YoutubeItem youtubeChannel;
 
   YoutubeChannelItem(this.youtubeChannel);
 
@@ -114,7 +116,7 @@ class YoutubeChannelItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          youtubeChannel.ArtistName,
+                          youtubeChannel.title,
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
@@ -122,7 +124,7 @@ class YoutubeChannelItem extends StatelessWidget {
                               fontStyle: FontStyle.italic),
                         ),
                         Text(
-                          youtubeChannel.videoName,
+                          youtubeChannel.imageUrl,
                           style: TextStyle(
                               color: Colors.white70,
                               fontWeight: FontWeight.w500,

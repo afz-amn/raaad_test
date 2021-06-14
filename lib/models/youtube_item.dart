@@ -6,7 +6,7 @@ class YoutubeItem {
 
   YoutubeItem(this.url, this.id, this.imageUrl, this.title);
 
-  YoutubeItem fromJson(Map<String, dynamic> json) {
+  static YoutubeItem fromJson(Map<String, dynamic> json) {
     return YoutubeItem(
       json['id'],
       json['imageUrl'],
