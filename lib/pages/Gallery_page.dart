@@ -64,7 +64,7 @@ class PhotosItem extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
-                    image: AssetImage(item.imagePath), fit: BoxFit.cover)),
+                    image: NetworkImage(item.imagePath), fit: BoxFit.cover)),
           ),
           Container(
             margin: EdgeInsets.symmetric(

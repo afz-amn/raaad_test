@@ -8,9 +8,9 @@ class YoutubeItem {
 
   static YoutubeItem fromJson(Map<String, dynamic> json) {
     return YoutubeItem(
+      json['url'],
       json['id'],
       json['imageUrl'],
-      json['url'],
       json['title'],
     );
   }

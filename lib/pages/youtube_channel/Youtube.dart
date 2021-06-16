@@ -100,7 +100,7 @@ class YoutubeChannelItem extends StatelessWidget {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage(youtubeChannel.imageUrl)),
+                          image: NetworkImage(youtubeChannel.imageUrl)),
                       borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     ),
                   ),
