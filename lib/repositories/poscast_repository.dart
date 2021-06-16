@@ -11,9 +11,9 @@ Future<List<Podcast>> preparePodcastsRequest() async {
   var as;
   try {
 
-
-
-    var podcastMap = jsonEncode(podcastList().map((e) => e.toJson()).toList());
+    // var podcastMap = jsonEncode(podcastList().map((e) => e.toJson()).toList());
+    // var galleryMap = jsonEncode(galleyList().map((e) => e.toJson()).toList());
+    // var youtubeMap = jsonEncode(youtubeChannelList().map((e) => e.toJson()).toList());
 
 
     var response = await Dio().get(
