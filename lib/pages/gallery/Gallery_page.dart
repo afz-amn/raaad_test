@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:radio/models/gallery.dart';
 import 'package:radio/pages/gallery/gallery_viewmodel.dart';
-import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 import 'package:stacked/stacked.dart';
 

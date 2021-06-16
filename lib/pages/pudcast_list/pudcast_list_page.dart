@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:radio/models/podcast.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
-import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 import 'package:stacked/stacked.dart';
 

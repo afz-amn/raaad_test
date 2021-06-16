@@ -188,13 +188,13 @@ class MainPageState extends State<MainPage>
                             color: Colors.white),
                       ),
                       Text(
-                        widget.podcast.musicName,
+                        widget.podcast.artistName,
                         style: TextStyle(
                             fontSize: fullWidth(context) / 20,
                             color: Colors.white),
                       ),
                       Text(
-                        widget.podcast.artistName,
+                        widget.podcast.musicName,
                         style: TextStyle(
                             fontSize: fullWidth(context) / 30,
                             color: Colors.white),
