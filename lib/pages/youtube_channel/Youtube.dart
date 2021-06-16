@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:radio/models/youtube_item.dart';
 import 'package:radio/pages/main_page.dart';
+import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 import 'package:radio/pages/youtube_channel/youtube_viewmodel.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
@@ -78,7 +79,7 @@ class YoutubeChannelItem extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MainPage(),
+            builder: (context) => PodcastListPage(),
           )),
       child: Container(
         margin: EdgeInsets.only(

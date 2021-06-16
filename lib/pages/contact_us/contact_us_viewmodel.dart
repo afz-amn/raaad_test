@@ -6,7 +6,7 @@ import 'contacts_page.dart';
 class ContactListVM extends FutureViewModel<List<ContactUsModel>>{
   @override
   Future<List<ContactUsModel>> futureToRun() {
-    return Future.value(ContactUsModelList());
+    return Future.value([]);
   }
 }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:radio/models/podcast.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 import 'gallery/Gallery_page.dart';
 import 'youtube_channel/Youtube.dart';
@@ -10,6 +11,10 @@ import 'package:radio/styles/dimens.dart';
 import 'contact_us/contacts_page.dart';
 
 class MainPage extends StatefulWidget {
+  final Podcast podcast;
+
+  MainPage(this.podcast);
+
   @override
   State<StatefulWidget> createState() => MainPageState();
 }
@@ -183,13 +188,13 @@ class MainPageState extends State<MainPage>
                             color: Colors.white),
                       ),
                       Text(
-                        "              Available Now",
+                        widget.podcast.musicName,
                         style: TextStyle(
                             fontSize: fullWidth(context) / 20,
                             color: Colors.white),
                       ),
                       Text(
-                        "                    Culture and Music",
+                        widget.podcast.artistName,
                         style: TextStyle(
                             fontSize: fullWidth(context) / 30,
                             color: Colors.white),

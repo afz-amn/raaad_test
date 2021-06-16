@@ -69,7 +69,7 @@ class PodcastItemWidget extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MainPage(),
+            builder: (context) => MainPage(podcast),
           )),
       child: Container(
         margin: EdgeInsets.only(
