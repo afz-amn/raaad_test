@@ -49,31 +49,31 @@ List<Gallery> galleyList() {
   List<Gallery> galleries = [];
   galleries.add(Gallery(
     0,
-    "assets/Radio8.jpg",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/Radio8.jpg",
     "Radio Tiam _ Audiogate ",
     "subtitle"
   ));
   galleries.add(Gallery(
     1,
-    "assets/PhotoHoghogheBashar.jpg",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/PhotoHoghogheBashar.jpg",
     "The first meeting at Radio Orange Studio",
     "subtitle",
   ));
   galleries.add(Gallery(
     2,
-    "assets/firstPhoto.jpg",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/firstPhoto.jpg",
     "The first performance of Sahar on the radio",
     "subtitle",
   ));
   galleries.add(Gallery(
     3,
-    "assets/Radio3.jpg",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/Radio3.jpg",
     "The first meeting on the relationship between culture and history",
     "subtitle",
   ));
   galleries.add(Gallery(
     4,
-    "assets/photoGallery.jpg",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/photoGallery.jpg",
     "The second meeting with Armin about traditional music",
     "subtitle",
   ));
@@ -85,31 +85,31 @@ List<Gallery> galleyList() {
   ));
   galleries.add(Gallery(
     6,
-    "assets/Radio2.jpg",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/Radio2.jpg",
     "The first meeting with mr. Wikler",
     "subtitle",
   ));
   galleries.add(Gallery(
     7,
-    "assets/Radio3.jpg",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/Radio3.jpg",
     "The first interview with Babak",
     "subtitle",
   ));
   galleries.add(Gallery(
     8,
-    "assets/Radio4.jpg",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/Radio4.jpg",
     "The first meeting with mr. Kasra",
     "subtitle",
   ));
   galleries.add(Gallery(
     9,
-    "assets/Radio6.JPG",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/Radio6.JPG",
     "The first New Year's performance with Sahar",
     "subtitle",
   ));
   galleries.add(Gallery(
     10,
-    "assets/Radio7.JPG",
+    "https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/Radio7.JPG",
     "Live radio program in Radio Orange Studio",
     "subtitle",
   ));
