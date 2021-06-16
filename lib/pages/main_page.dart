@@ -55,16 +55,16 @@ class MainPageState extends State<MainPage>
                   width: fullWidth(context),
                   height: 150,
                   child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PodcastListPage(),
-                        ));
-                  },
-                  child:
-                      drawerItem(Icons.headset_mic_sharp, "Podcast", context)),
+              // GestureDetector(
+              //     onTap: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => PodcastListPage(),
+              //           ));
+              //     },
+              //     child:
+              //         drawerItem(Icons.headset_mic_sharp, "Podcast", context)),
               GestureDetector(
                   onTap: () {
                     Navigator.push(

@@ -2,20 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:radio/models/podcast.dart';
-import 'package:radio/pages/contact_us/contacts_page.dart';
-import 'package:radio/pages/main_page.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
-import 'package:radio/pages/youtube_channel/Youtube.dart';
 import 'package:stacked/stacked.dart';
+import 'gallery/Gallery_page.dart';
+import 'main_page.dart';
+import 'youtube_channel/Youtube.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 
-import '../Gallery_page.dart';
-
+import 'contact_us/contacts_page.dart';
 
 class PodcastListPage extends StatefulWidget {
+  final Podcast podcast;
 
+  PodcastListPage(this.podcast);
 
   @override
   State<StatefulWidget> createState() => PodcastListState();
@@ -31,108 +32,108 @@ class PodcastListState extends State<PodcastListPage>
     return ViewModelBuilder<PodcastListVM>.reactive(
         viewModelBuilder: () => PodcastListVM(),
         builder: (context, model, child) => Scaffold(
-          key: key,
-          backgroundColor: Colors.black87,
-          drawer: Drawer(
-            child: Container(
-              color: Colors.grey.shade900,
-              child: Column(
-                children: [
-                  AppBar(
-                    title: Text(
-                      "Podcast List",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    leading: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(
-                          Icons.close,
-                          color: Colors.black,
-                        )),
+              key: key,
+              backgroundColor: Colors.black87,
+              drawer: Drawer(
+                child: Container(
+                  color: Colors.grey.shade900,
+                  child: Column(
+                    children: [
+                      AppBar(
+                        title: Text(
+                          "Podcast List",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        leading: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(
+                              Icons.close,
+                              color: Colors.black,
+                            )),
+                      ),
+                      Container(
+                          width: fullWidth(context),
+                          height: 150,
+                          child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
+                      // GestureDetector(
+                      //     onTap: () {
+                      //       Navigator.push(
+                      //           context,
+                      //           MaterialPageRoute(
+                      //             builder: (context) => PodcastListPage(),
+                      //           ));
+                      //     },
+                      //     child: drawerItem(
+                      //         Icons.headset_mic_sharp, "Podcast", context)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => YoutubeCHannelPage(),
+                                ));
+                          },
+                          child: drawerItem(
+                              Icons.ondemand_video, "Youtube ", context)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => GalleryPage(),
+                                ));
+                          },
+                          child: drawerItem(
+                              Icons.photo_camera_front, "Gallery ", context)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ContactsPage(),
+                                ));
+                          },
+                          child: drawerItem(Icons.quick_contacts_mail,
+                              "Contact us", context)),
+                    ],
                   ),
-                  Container(
-                      width: fullWidth(context),
-                      height: 150,
-                      child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
-                  // GestureDetector(
-                  //     onTap: () {
-                  //       Navigator.push(
-                  //           context,
-                  //           MaterialPageRoute(
-                  //             builder: (context) => PodcastListPage(),
-                  //           ));
-                  //     },
-                  //     child: drawerItem(
-                  //         Icons.headset_mic_sharp, "Podcast", context)),
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => YoutubeCHannelPage(),
-                            ));
-                      },
-                      child: drawerItem(
-                          Icons.ondemand_video, "Youtube ", context)),
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => GalleryPage(),
-                            ));
-                      },
-                      child: drawerItem(
-                          Icons.photo_camera_front, "Gallery ", context)),
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ContactsPage(),
-                            ));
-                      },
-                      child: drawerItem(Icons.quick_contacts_mail,
-                          "Contact us", context)),
-                ],
+                ),
               ),
-            ),
-          ),
-          appBar: AppBar(
-            leading: IconButton(
-                onPressed: () {
-                  key.currentState!.openDrawer();
-                },
-                icon: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                )),
-            actions: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.share_outlined,
-                    color: Colors.white,
-                  )),
-            ],
-            title: Text(
-              "Radio Tiam",
-              style: TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.w600),
-            ),
-          ),
-          body: ListView.builder(
-              itemCount: 13,
-              itemBuilder: (context, index) =>
-                  PodcastItemWidget(model.data![index])),
-        ));
+              appBar: AppBar(
+                leading: IconButton(
+                    onPressed: () {
+                      key.currentState!.openDrawer();
+                    },
+                    icon: Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    )),
+                actions: [
+                  IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.share_outlined,
+                        color: Colors.white,
+                      )),
+                ],
+                title: Text(
+                  "Radio Tiam",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w600),
+                ),
+              ),
+              body: ListView.builder(
+                  itemCount: 13,
+                  itemBuilder: (context, index) =>
+                      PodcastItemWidget(model.data![index])),
+            ));
   }
 }
 
