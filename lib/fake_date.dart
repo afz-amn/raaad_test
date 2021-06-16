@@ -79,7 +79,7 @@ List<Gallery> galleyList() {
   ));
   galleries.add(Gallery(
     5,
-    "assets/Radio1.jpg",
+    "http://github.com/afz-amn/raaad_test/raw/master/assets/Radio1.jpg",
     "The second meeting on the relationship between culture and history",
     "subtitle",
   ));
