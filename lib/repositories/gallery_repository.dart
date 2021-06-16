@@ -1,17 +1,20 @@
+import 'dart:convert';
+
 import 'package:radio/models/gallery.dart';
 import 'package:dio/dio.dart';
 
 Future<List<Gallery>> prepareGalleriesRequest() async {
-  //Map<String, dynamic> json = Map<String, dynamic>();
+  try {
+    var response = await Dio().get(
+        'https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/data/gallery.txt');
 
-  var as;
-  try{
-    var response = await Dio().get('http://warehouse.idmp724.com/api/DevAuthentication/CheckDataUpdates?timestamp=1620060256526');
-    print(response);
+    Iterable l = json.decode(response.data);
+    List<Gallery> result =
+        List<Gallery>.from(l.map((model) => Gallery.fromJson(model)));
 
-    as  = Gallery.fromJson(response.data);
+    return result;
   } catch (e) {
     print(e);
+    return [];
   }
-  return [as];
 }

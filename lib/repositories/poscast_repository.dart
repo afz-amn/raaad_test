@@ -8,21 +8,19 @@ import '../fake_date.dart';
 Future<List<Podcast>> preparePodcastsRequest() async {
 //  Map<String, dynamic> json = Map<String, dynamic>();
 
-  var as;
   try {
 
-    // var podcastMap = jsonEncode(podcastList().map((e) => e.toJson()).toList());
-    // var galleryMap = jsonEncode(galleyList().map((e) => e.toJson()).toList());
-    // var youtubeMap = jsonEncode(youtubeChannelList().map((e) => e.toJson()).toList());
-
-
     var response = await Dio().get(
-        'http://warehouse.idmp724.com/api/DevAuthentication/CheckDataUpdates?timestamp=1620060256526');
-    print(response);
+        'https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/data/podcasts.txt');
 
-    as = Podcast.fromJson(response.data);
+    Iterable l = json.decode(response.data);
+    List<Podcast> result =
+        List<Podcast>.from(l.map((model) => Podcast.fromJson(model)));
+
+    return result;
   } catch (e) {
     print(e);
+    return [];
+
   }
-  return [as];
 }

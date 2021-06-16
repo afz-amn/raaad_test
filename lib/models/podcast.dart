@@ -13,9 +13,9 @@ class Podcast {
   static Podcast fromJson(Map<String, dynamic> json) {
 
     return Podcast(
+      json['artistName'],
       json['id'],
       json['imageUrl'],
-      json['artistName'],
       json['musicName'],
       json['url'],
       isLiked: json['isLiked'],

@@ -18,19 +18,21 @@ class GalleryPage extends StatelessWidget {
           slivers: [
             SliverAppBar(
               backgroundColor: Colors.black38,
-              expandedHeight: 100,
+              expandedHeight: 200,
               pinned: true,
               stretch: true,
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   "Gallery",
-                  style: TextStyle(color: Colors.white70, fontSize: 17,
-                  fontStyle: FontStyle.italic),
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic),
                 ),
-                centerTitle: true,
+                centerTitle: false,
                 stretchModes: [StretchMode.zoomBackground],
-                background: Image.network(
-                    'https://i.pinimg.com/originals/ee/d8/79/eed87935929cba829b0df65c20ba80f5.jpg'),
+                // background: Image.network(
+                //     'https://i.pinimg.com/originals/ee/d8/79/eed87935929cba829b0df65c20ba80f5.jpg'),
               ),
             ),
             SliverList(
@@ -47,8 +49,6 @@ class GalleryPage extends StatelessWidget {
   }
 }
 
-
-
 class PhotosItem extends StatelessWidget {
   final Gallery item;
 
@@ -58,28 +58,30 @@ class PhotosItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: fullWidth(context),
-      padding: EdgeInsets.all(smallSize(context)),
-
+      // color: Colors.black,
+      margin: EdgeInsets.all(smallSize(context)),
       child: Column(
         children: [
           Container(
-            color: Colors.black,
             margin: EdgeInsets.symmetric(horizontal: mediumSize(context)),
             height: 200,
             width: fullWidth(context),
             decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-            image: AssetImage(item.imagePath), fit: BoxFit.cover)),
+                borderRadius: BorderRadius.circular(12),
+                image: DecorationImage(
+                    image: NetworkImage(item.imagePath), fit: BoxFit.cover)),
           ),
           Container(
-            color: Colors.black,
+            // color: Colors.black,
             margin: EdgeInsets.symmetric(
-            horizontal: mediumSize(context), vertical: smallSize(context)),
+                horizontal: mediumSize(context), vertical: smallSize(context)),
             alignment: Alignment.centerLeft,
             child: Text(
               item.title,
-              style: TextStyle(color: Colors.white, fontSize: 17, fontStyle: FontStyle.italic),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontStyle: FontStyle.normal),
             ),
           ),
         ],
