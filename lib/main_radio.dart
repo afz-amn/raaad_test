@@ -178,7 +178,7 @@ class _ExampleAppState extends State<ExampleApp> {
     await advancedPlayer.setUrl(uri.toString());
     return Future.delayed(
       const Duration(seconds: 2),
-          () => advancedPlayer.getDuration(),
+      () => advancedPlayer.getDuration(),
     );
   }
 
@@ -462,10 +462,10 @@ class _Tab extends StatelessWidget {
             children: children
                 .map(
                   (w) => Container(
-                child: w,
-                padding: const EdgeInsets.all(6.0),
-              ),
-            )
+                    child: w,
+                    padding: const EdgeInsets.all(6.0),
+                  ),
+                )
                 .toList(),
           ),
         ),

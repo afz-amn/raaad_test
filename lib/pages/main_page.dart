@@ -1,9 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:radio/models/podcast.dart';
-import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
+import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
+import 'package:stacked/stacked.dart';
 import 'gallery/Gallery_page.dart';
 import 'youtube_channel/Youtube.dart';
 import 'package:radio/styles/assets.dart';
@@ -12,9 +11,11 @@ import 'package:radio/styles/dimens.dart';
 import 'contact_us/contacts_page.dart';
 
 class MainPage extends StatefulWidget {
-  final Podcast podcast;
+  final int podcastIndex;
+  final PodcastListVM viewModel;
+  AudioPlayer advancedPlayer = AudioPlayer();
 
-  MainPage(this.podcast);
+  MainPage(this.viewModel, {this.podcastIndex = 0});
 
   @override
   State<StatefulWidget> createState() => MainPageState();
@@ -22,267 +23,234 @@ class MainPage extends StatefulWidget {
 
 class MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
-  double valueCurrent = 0;
   final GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
-  AudioPlayer audioPlayer = AudioPlayer();
+  bool? seekDone;
+
+  @override
+  void initState() {
+    widget.advancedPlayer.onSeekComplete
+        .listen((event) => setState(() => seekDone = true));
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: key,
-      backgroundColor: Colors.black87,
-      drawer: Drawer(
-        child: Container(
-          color: Colors.grey.shade900,
-          child: Column(
-            children: [
-              AppBar(
+    return ViewModelBuilder<PodcastListVM>.reactive(
+        viewModelBuilder: () => widget.viewModel,
+        builder: (context, model, child) => Scaffold(
+              key: key,
+              backgroundColor: Colors.black87,
+              drawer: Drawer(
+                child: Container(
+                  color: Colors.grey.shade900,
+                  child: Column(
+                    children: [
+                      AppBar(
+                        title: Text(
+                          "Radio Tiam",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        leading: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(
+                              Icons.close,
+                              color: Colors.black,
+                            )),
+                      ),
+                      Container(
+                          width: fullWidth(context),
+                          height: 150,
+                          child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => YoutubeCHannelPage(),
+                                ));
+                          },
+                          child: drawerItem(
+                              Icons.ondemand_video, "Youtube ", context)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => GalleryPage(),
+                                ));
+                          },
+                          child: drawerItem(
+                              Icons.photo_camera_front, "Gallery ", context)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ContactsPage(),
+                                ));
+                          },
+                          child: drawerItem(Icons.quick_contacts_mail,
+                              "Contact us", context)),
+                    ],
+                  ),
+                ),
+              ),
+              appBar: AppBar(
+                leading: IconButton(
+                    onPressed: () {
+                      key.currentState!.openDrawer();
+                    },
+                    icon: Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    )),
                 title: Text(
                   "Radio Tiam",
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
+                      color: Colors.white, fontWeight: FontWeight.w600),
                 ),
-                leading: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(
-                      Icons.close,
-                      color: Colors.black,
-                    )),
               ),
-              Container(
-                  width: fullWidth(context),
-                  height: 150,
-                  child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
-              // GestureDetector(
-              //     onTap: () {
-              //       Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //             builder: (context) => PodcastListPage(),
-              //           ));
-              //     },
-              //     child:
-              //         drawerItem(Icons.headset_mic_sharp, "Podcast", context)),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => YoutubeCHannelPage(),
-                        ));
-                  },
-                  child: drawerItem(Icons.ondemand_video, "Youtube ", context)),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => GalleryPage(),
-                        ));
-                  },
-                  child: drawerItem(
-                      Icons.photo_camera_front, "Gallery ", context)),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ContactsPage(),
-                        ));
-                  },
-                  child: drawerItem(
-                      Icons.quick_contacts_mail, "Contact us", context)),
-            ],
-          ),
-        ),
-      ),
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              key.currentState!.openDrawer();
-            },
-            icon: Icon(
-              Icons.menu,
-              color: Colors.white,
-            )),
-        // actions: [
-        //   IconButton(
-        //       onPressed: () {
-        //         Navigator.pop(context);
-        //       },
-        //       icon: Icon(
-        //         Icons.share_outlined,
-        //         color: Colors.white,
-        //       )),
-        // ],
-        title: Text(
-          "Radio Tiam",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-        ),
-      ),
-      body: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.all(xlargeSize(context)),
-            height: fullHeight(context) / 2.8,
-            width: fullWidth(context),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                    image: AssetImage(FirstPhoto), fit: BoxFit.cover)),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: smallSize(context)),
-            child: Divider(
-              color: Colors.grey.shade800,
-              thickness: 1,
-              height: 0.5,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: mediumSize(context)),
-            child: Divider(
-              color: Colors.grey.shade800,
-              thickness: 1,
-              height: 0.5,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: smallSize(context)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Icon(
-                //   Icons.play_arrow,
-                //   color: Colors.deepOrange,
-                // ),
-                // Container(
-                //   margin: EdgeInsets.only(
-                //     top: xlargeSize(context) / 1.2,
-                //   ),
-                //   child: ElevatedButton(
-                //     style: ElevatedButton.styleFrom(
-                //       primary: Theme.of(context).accentColor,
-                //       elevation: standardSize(context),
-                //       padding: EdgeInsets.symmetric(
-                //           horizontal: largeSize(context),
-                //           vertical: smallSize(context)),
-                //     ),
-                //     onPressed: () async {
-                //
-                //       // widget.controller.animateToPage(
-                //       //   widget.controller.page!.toInt() + 1,
-                //       //   duration: Duration(milliseconds: 200),
-                //       //   curve: Curves.easeInQuad,
-                //       // );
-                //     },
-                //     child: Text(
-                //       "Now Playing",
-                //       style: TextStyle(
-                //           fontSize: fullWidth(context) / 30,
-                //           color: Colors.grey.shade700),
-                //     ),
-                //   ),
-                // ),
-
-                Text(
-                  "Now Playing",
-                  style: TextStyle(
-                      fontSize: fullWidth(context) / 30,
-                      color: Colors.grey.shade700),
-                )
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: standardSize(context)),
-            child: Row(
-              children: [
-                // IconButton(
-                //     onPressed: () {},
-                //     icon: SvgPicture.asset(
-                //       likeIcon,
-                //       color: Colors.grey.shade600,
-                //     )),
-                Container(
-                  margin: EdgeInsets.only(left: smallSize(context)),
-                  child: Column(
+              body: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(xlargeSize(context)),
+                    height: fullHeight(context) / 2.8,
+                    width: fullWidth(context),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                            image: AssetImage(FirstPhoto), fit: BoxFit.cover)),
+                  ),
+                  Container(
+                    margin:
+                        EdgeInsets.symmetric(horizontal: smallSize(context)),
+                    child: Divider(
+                      color: Colors.grey.shade800,
+                      thickness: 1,
+                      height: 0.5,
+                    ),
+                  ),
+                  Container(
+                    margin:
+                        EdgeInsets.symmetric(horizontal: mediumSize(context)),
+                    child: Divider(
+                      color: Colors.grey.shade800,
+                      thickness: 1,
+                      height: 0.5,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: smallSize(context)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Now Playing",
+                          style: TextStyle(
+                              fontSize: fullWidth(context) / 30,
+                              color: Colors.grey.shade700),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin:
+                        EdgeInsets.symmetric(horizontal: standardSize(context)),
+                    child: Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: smallSize(context)),
+                          child: Column(
+                            children: [
+                              Text(
+                                " ",
+                                style: TextStyle(
+                                    fontSize: fullWidth(context) / 25,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                model.data![widget.podcastIndex].artistName,
+                                style: TextStyle(
+                                    fontSize: fullWidth(context) / 20,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                model.data![widget.podcastIndex].musicName,
+                                style: TextStyle(
+                                    fontSize: fullWidth(context) / 30,
+                                    color: Colors.white),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        " ",
-                        style: TextStyle(
-                            fontSize: fullWidth(context) / 25,
-                            color: Colors.white),
+                      Container(
+                        child: Container(
+                          margin: EdgeInsets.all(xlargeSize(context)),
+                          child: Icon(
+                            Icons.arrow_back_ios_rounded,
+                            color: Colors.white70,
+                            size: 30,
+                          ),
+                        ),
                       ),
-                      Text(
-                        widget.podcast.artistName,
-                        style: TextStyle(
-                            fontSize: fullWidth(context) / 20,
-                            color: Colors.white),
+                      Container(
+                        margin: EdgeInsets.all(xxlargeSize(context)),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.grey, width: 2)),
+                        width: fullWidth(context) / 4,
+                        child: IconButton(
+                          onPressed: () async {
+                            if (widget.advancedPlayer.state ==
+                                PlayerState.PLAYING) {
+                              setState(() {
+                                widget.advancedPlayer.pause();
+                              });
+                            } else {
+                              setState(() {
+                                widget.advancedPlayer.setUrl(
+                                    "https://luan.xyz/files/audio/ambient_c_motion.mp3");
+                                widget.advancedPlayer.resume();
+                              });
+                            }
+                          },
+                          icon: Icon(
+                            widget.advancedPlayer.state == PlayerState.PLAYING
+                                ? Icons.pause
+                                : Icons.play_arrow,
+                            color: Colors.white70,
+                            size: fullWidth(context) / 6,
+                          ),
+                        ),
+                        height: fullWidth(context) / 4,
                       ),
-                      Text(
-                        widget.podcast.musicName,
-                        style: TextStyle(
-                            fontSize: fullWidth(context) / 30,
-                            color: Colors.white),
-                      )
+                      Container(
+                        child: Container(
+                          margin: EdgeInsets.all(xlargeSize(context)),
+                          child: Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            color: Colors.white70,
+                            size: 30,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                )
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                child: Container(
-                  margin: EdgeInsets.all(xlargeSize(context)),
-                  child: Icon(
-                    Icons.arrow_back_ios_rounded,
-                    color: Colors.white70,
-                    size: 30,
-                  ),
-                ),
+                ],
               ),
-              Container(
-                margin: EdgeInsets.all(xxlargeSize(context)),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.grey, width: 2)),
-                width: fullWidth(context) / 4,
-                child: IconButton(
-                  onPressed: () async {
-                    int result = await audioPlayer.play(widget.podcast.url);
-                    print(result);
-                  },
-                  icon: Icon(
-                    Icons.play_arrow,
-                    color: Colors.white70,
-                    size: fullWidth(context) / 6,
-                  ),
-                ),
-                height: fullWidth(context) / 4,
-              ),
-              Container(
-                child: Container(
-                  margin: EdgeInsets.all(xlargeSize(context)),
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: Colors.white70,
-                    size: 30,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+            ));
   }
 }
 

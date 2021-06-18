@@ -1,15 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:radio/models/podcast.dart';
 import 'package:radio/pages/contact_us/contacts_page.dart';
-import 'package:radio/pages/main_page.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
 import 'package:radio/pages/youtube_channel/Youtube.dart';
 import 'package:stacked/stacked.dart';
+import '../Gallery_page.dart';
+import '../main_page.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
-
-import '../Gallery_page.dart';
 
 class PodcastListPage extends StatefulWidget {
   @override
@@ -124,9 +122,9 @@ class PodcastListState extends State<PodcastListPage>
                 ),
               ),
               body: ListView.builder(
-                  itemCount: model.data?.length ?? 0,
+                  itemCount: 13,
                   itemBuilder: (context, index) =>
-                      PodcastItemWidget(model.data![index])),
+                      PodcastItemWidget(model, podcastIndex: index)),
             ));
   }
 }
@@ -159,9 +157,10 @@ Widget drawerItem(IconData icon, String text, BuildContext context) {
 }
 
 class PodcastItemWidget extends StatelessWidget {
-  final Podcast podcast;
+  final int podcastIndex;
+  final PodcastListVM viewModel;
 
-  PodcastItemWidget(this.podcast);
+  PodcastItemWidget(this.viewModel, {this.podcastIndex = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +168,8 @@ class PodcastItemWidget extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MainPage(podcast),
+            builder: (context) =>
+                MainPage(viewModel, podcastIndex: podcastIndex),
           )),
       child: Container(
         margin: EdgeInsets.only(
@@ -192,7 +192,8 @@ class PodcastItemWidget extends StatelessWidget {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage(podcast.imageUrl)),
+                          image: NetworkImage(
+                              viewModel.data![podcastIndex].imageUrl)),
                       borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     ),
                   ),
@@ -207,7 +208,7 @@ class PodcastItemWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          podcast.artistName,
+                          viewModel.data![podcastIndex].artistName,
                           style: TextStyle(
                               color: Colors.white70,
                               fontWeight: FontWeight.w500,
@@ -215,7 +216,7 @@ class PodcastItemWidget extends StatelessWidget {
                               fontStyle: FontStyle.italic),
                         ),
                         Text(
-                          podcast.musicName,
+                          viewModel.data![podcastIndex].musicName,
                           style: TextStyle(
                               color: Colors.white70,
                               fontWeight: FontWeight.w500,
