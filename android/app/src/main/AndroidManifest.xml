@@ -1,8 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.digitalgenius.radio">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
    <application
         android:label="radio"
-        android:icon="@mipmap/ic_launcher">
+       android:usesCleartextTraffic="true"
+
+       android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

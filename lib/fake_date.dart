@@ -1,3 +1,4 @@
+/*
 
 import 'package:radio/models/gallery.dart';
 import 'package:radio/models/youtube_item.dart';
@@ -8,7 +9,7 @@ import 'models/contact_us_model.dart';
 import 'models/podcast.dart';
 
 List<Podcast> podcastList() {
-  List<Podcast>? podcasts = [];
+  List<Podcast> podcasts = [];
 
   podcasts.add(Podcast("Sahar and Reza Vatan", 0, podcast,
       "The importance of women in the history Iranian literature","https://dls.musicmedia.ir/ahang/Violin%20Romances_Schumann%20[%20musicmedia.ir%20].mp3"));
@@ -174,7 +175,7 @@ List<ContactUsModel> ContactUsModelList() {
 }
 
 List<YoutubeItem> youtubeChannelList() {
-  List<YoutubeItem>? youtubeChannels = [];
+  List<YoutubeItem> youtubeChannels = [];
 
   youtubeChannels.add(YoutubeItem("Iranian Kunst", 0, ArtOfIran,
       "Ein Blick auf die Traditionelle Iranische Kunst"));
@@ -202,3 +203,4 @@ List<YoutubeItem> youtubeChannelList() {
   return youtubeChannels;
 }
 
+*/

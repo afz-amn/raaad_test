@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,6 +24,7 @@ class MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
   double valueCurrent = 0;
   final GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
+  AudioPlayer audioPlayer = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -107,16 +109,16 @@ class MainPageState extends State<MainPage>
               Icons.menu,
               color: Colors.white,
             )),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.share_outlined,
-                color: Colors.white,
-              )),
-        ],
+        // actions: [
+        //   IconButton(
+        //       onPressed: () {
+        //         Navigator.pop(context);
+        //       },
+        //       icon: Icon(
+        //         Icons.share_outlined,
+        //         color: Colors.white,
+        //       )),
+        // ],
         title: Text(
           "Radio Tiam",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
@@ -154,10 +156,39 @@ class MainPageState extends State<MainPage>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.play_arrow,
-                  color: Colors.deepOrange,
-                ),
+                // Icon(
+                //   Icons.play_arrow,
+                //   color: Colors.deepOrange,
+                // ),
+                // Container(
+                //   margin: EdgeInsets.only(
+                //     top: xlargeSize(context) / 1.2,
+                //   ),
+                //   child: ElevatedButton(
+                //     style: ElevatedButton.styleFrom(
+                //       primary: Theme.of(context).accentColor,
+                //       elevation: standardSize(context),
+                //       padding: EdgeInsets.symmetric(
+                //           horizontal: largeSize(context),
+                //           vertical: smallSize(context)),
+                //     ),
+                //     onPressed: () async {
+                //
+                //       // widget.controller.animateToPage(
+                //       //   widget.controller.page!.toInt() + 1,
+                //       //   duration: Duration(milliseconds: 200),
+                //       //   curve: Curves.easeInQuad,
+                //       // );
+                //     },
+                //     child: Text(
+                //       "Now Playing",
+                //       style: TextStyle(
+                //           fontSize: fullWidth(context) / 30,
+                //           color: Colors.grey.shade700),
+                //     ),
+                //   ),
+                // ),
+
                 Text(
                   "Now Playing",
                   style: TextStyle(
@@ -171,12 +202,12 @@ class MainPageState extends State<MainPage>
             margin: EdgeInsets.symmetric(horizontal: standardSize(context)),
             child: Row(
               children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset(
-                      likeIcon,
-                      color: Colors.grey.shade600,
-                    )),
+                // IconButton(
+                //     onPressed: () {},
+                //     icon: SvgPicture.asset(
+                //       likeIcon,
+                //       color: Colors.grey.shade600,
+                //     )),
                 Container(
                   margin: EdgeInsets.only(left: smallSize(context)),
                   child: Column(
@@ -225,7 +256,10 @@ class MainPageState extends State<MainPage>
                     border: Border.all(color: Colors.grey, width: 2)),
                 width: fullWidth(context) / 4,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    int result = await audioPlayer.play(widget.podcast.url);
+                    print(result);
+                  },
                   icon: Icon(
                     Icons.play_arrow,
                     color: Colors.white70,

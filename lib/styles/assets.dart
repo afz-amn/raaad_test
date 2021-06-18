@@ -26,5 +26,4 @@ const travel = "assets/travel.JPG";
 const miniature = "assets/mini.JPG";
 const music = "assets/music1.JPG";
 const shahnameh = "assets/shahnameh.JPG";
-const podcast = "assets/podcastPhoto.JPG";
 
