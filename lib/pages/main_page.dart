@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
+import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 import 'package:stacked/stacked.dart';
 import 'gallery/Gallery_page.dart';
 import 'youtube_channel/Youtube.dart';
@@ -13,6 +14,7 @@ import 'contact_us/contacts_page.dart';
 class MainPage extends StatefulWidget {
   final int podcastIndex;
   final PodcastListVM viewModel;
+
   AudioPlayer advancedPlayer = AudioPlayer();
 
   MainPage(this.viewModel, {this.podcastIndex = 0});
@@ -97,6 +99,18 @@ class MainPageState extends State<MainPage>
                           },
                           child: drawerItem(Icons.quick_contacts_mail,
                               "Contact us", context)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PodcastListPage(),
+                                ));
+                          },
+                          child: drawerItem(
+                              Icons.record_voice_over, "Podcast", context)),
+
+
                     ],
                   ),
                 ),
@@ -176,15 +190,18 @@ class MainPageState extends State<MainPage>
                               ),
                               Text(
                                 model.data![widget.podcastIndex].artistName,
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: fullWidth(context) / 20,
                                     color: Colors.white),
                               ),
                               Text(
                                 model.data![widget.podcastIndex].musicName,
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: fullWidth(context) / 30,
-                                    color: Colors.white),
+                                    color: Colors.white,
+                                     ),
                               )
                             ],
                           ),

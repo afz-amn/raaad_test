@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 import 'package:stacked/stacked.dart';
-
 import 'contact_us_viewmodel.dart';
 
 class ContactsPage extends StatelessWidget {
