@@ -184,6 +184,7 @@ class MainPageState extends State<MainPage>
                             children: [
                               Text(
                                 " ",
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: fullWidth(context) / 25,
                                     color: Colors.white),
@@ -238,7 +239,7 @@ class MainPageState extends State<MainPage>
                             } else {
                               setState(() {
                                 widget.advancedPlayer.setUrl(
-                                    "https://luan.xyz/files/audio/ambient_c_motion.mp3");
+                                    "https://securestream.o94.at/live.mp3");
                                 widget.advancedPlayer.resume();
                               });
                             }
