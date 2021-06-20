@@ -89,16 +89,7 @@ class MainPageState extends State<MainPage>
                           },
                           child: drawerItem(
                               Icons.photo_camera_front, "Gallery ", context)),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ContactsPage(),
-                                ));
-                          },
-                          child: drawerItem(Icons.quick_contacts_mail,
-                              "Contact us", context)),
+
                       GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -109,6 +100,16 @@ class MainPageState extends State<MainPage>
                           },
                           child: drawerItem(
                               Icons.record_voice_over, "Podcast", context)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ContactsPage(),
+                                ));
+                          },
+                          child: drawerItem(Icons.quick_contacts_mail,
+                              "Contact us", context)),
 
 
                     ],
