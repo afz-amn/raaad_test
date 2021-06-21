@@ -32,12 +32,7 @@ class YoutubeCHannelPage extends StatelessWidget {
                           fontSize: 18,
                           fontStyle: FontStyle.italic),
                     ),
-                    actions: [
-                      Icon(
-                        Icons.share_sharp,
-                        color: Colors.white,
-                      )
-                    ],
+
                     flexibleSpace: FlexibleSpaceBar(
                       stretchModes: [StretchMode.zoomBackground],
                     ),

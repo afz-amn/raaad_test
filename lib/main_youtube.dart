@@ -3,9 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:radio/video_list.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import 'video_list.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -168,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
           leading: Padding(
             padding: const EdgeInsets.only(left: 12.0),
             child: Image.asset(
-              'assets/ypf.png',
+              'assets/studio.jpg',
               fit: BoxFit.fitWidth,
             ),
           ),

@@ -12,8 +12,7 @@ import 'package:radio/styles/dimens.dart';
 import 'contact_us/contacts_page.dart';
 
 class MainRadioPage extends StatefulWidget {
-  AudioPlayer advancedPlayer = AudioPlayer();
-
+  final AudioPlayer advancedPlayer = AudioPlayer();
 
   @override
   State<StatefulWidget> createState() => MainRadioPageState();
@@ -70,6 +69,28 @@ class MainRadioPageState extends State<MainRadioPage>
                   width: fullWidth(context),
                   height: 150,
                   child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
+              // GestureDetector(
+              //     onTap: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //             builder: (context) => PodcastListPage(),
+              //           ));
+              //     },
+              //     child: drawerItem(
+              //         Icons.headset_mic_sharp, "Podcast", context)),
+
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PodcastListPage(),
+                        ));
+                  },
+                  child: drawerItem(
+                      Icons.ondemand_video, "podcast list ", context)),
+
               GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -89,16 +110,6 @@ class MainRadioPageState extends State<MainRadioPage>
                   },
                   child: drawerItem(
                       Icons.photo_camera_front, "Gallery ", context)),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PodcastListPage(),
-                        ));
-                  },
-                  child:
-                      drawerItem(Icons.record_voice_over, "Podcast", context)),
               GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -124,7 +135,10 @@ class MainRadioPageState extends State<MainRadioPage>
             )),
         title: Text(
           "Radio Tiam",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontStyle: FontStyle.italic),
+          style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontStyle: FontStyle.italic),
         ),
       ),
       body: Column(
@@ -208,15 +222,15 @@ class MainRadioPageState extends State<MainRadioPage>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                child: Container(
-                  margin: EdgeInsets.all(xlargeSize(context)),
-                  child: Icon(
-                    Icons.arrow_back_ios_rounded,
-                    color: Colors.white70,
-                    size: 30,
+                  // child: Container(
+                  //   margin: EdgeInsets.all(xlargeSize(context)),
+                  //   child: Icon(
+                  //     Icons.arrow_back_ios_rounded,
+                  //     color: Colors.white70,
+                  //     size: 30,
+                  //   ),
+                  // ),
                   ),
-                ),
-              ),
               Container(
                 margin: EdgeInsets.all(xxlargeSize(context)),
                 decoration: BoxDecoration(
@@ -248,15 +262,15 @@ class MainRadioPageState extends State<MainRadioPage>
                 height: fullWidth(context) / 4,
               ),
               Container(
-                child: Container(
-                  margin: EdgeInsets.all(xlargeSize(context)),
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: Colors.white70,
-                    size: 30,
+                  // child: Container(
+                  //   margin: EdgeInsets.all(xlargeSize(context)),
+                  // child: Icon(
+                  //   Icons.arrow_forward_ios_rounded,
+                  //   color: Colors.white70,
+                  //   size: 30,
+                  // ),
                   ),
-                ),
-              ),
+              // ),
             ],
           ),
         ],

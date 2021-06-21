@@ -5,25 +5,26 @@ import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 import 'package:stacked/stacked.dart';
 import 'gallery/Gallery_page.dart';
+import 'main_radio_page.dart';
 import 'youtube_channel/Youtube.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 
 import 'contact_us/contacts_page.dart';
 
-class MainPage extends StatefulWidget {
+class PodcastPage extends StatefulWidget {
   final int podcastIndex;
   final PodcastListVM viewModel;
 
-  AudioPlayer advancedPlayer = AudioPlayer();
+  final AudioPlayer advancedPlayer = AudioPlayer();
 
-  MainPage(this.viewModel, {this.podcastIndex = 0});
+  PodcastPage(this.viewModel, {this.podcastIndex = 0});
 
   @override
-  State<StatefulWidget> createState() => MainPageState();
+  State<StatefulWidget> createState() => PodcastPageState();
 }
 
-class MainPageState extends State<MainPage>
+class PodcastPageState extends State<PodcastPage>
     with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
   bool? seekDone;
@@ -77,6 +78,17 @@ class MainPageState extends State<MainPage>
                           width: fullWidth(context),
                           height: 150,
                           child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
+
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MainRadioPage(),
+                                ));
+                          },
+                          child: drawerItem(
+                              Icons.ondemand_video, "radio tiam ", context)),
                       GestureDetector(
                           onTap: () {
                             Navigator.push(

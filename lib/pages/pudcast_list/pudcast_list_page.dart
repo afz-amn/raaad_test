@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:radio/pages/contact_us/contacts_page.dart';
+import 'package:radio/pages/main_radio_page.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
 import 'package:radio/pages/youtube_channel/Youtube.dart';
 import 'package:stacked/stacked.dart';
 import '../Gallery_page.dart';
-import '../main_page.dart';
+import '../podcast_page.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 
@@ -67,6 +68,16 @@ class PodcastListState extends State<PodcastListPage>
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
+                                  builder: (context) => MainRadioPage(),
+                                ));
+                          },
+                          child: drawerItem(
+                              Icons.ondemand_video, "radio tiam ", context)),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
                                   builder: (context) => YoutubeCHannelPage(),
                                 ));
                           },
@@ -105,16 +116,6 @@ class PodcastListState extends State<PodcastListPage>
                       Icons.menu,
                       color: Colors.white,
                     )),
-                actions: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(
-                        Icons.share_outlined,
-                        color: Colors.white,
-                      )),
-                ],
                 title: Text(
                   "Radio Tiam",
                   style: TextStyle(
@@ -169,7 +170,7 @@ class PodcastItemWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) =>
-                MainPage(viewModel, podcastIndex: podcastIndex),
+                PodcastPage(viewModel, podcastIndex: podcastIndex),
           )),
       child: Container(
         margin: EdgeInsets.only(
