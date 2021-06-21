@@ -43,14 +43,12 @@
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/2019-06-08-15-00-00_preview.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":6,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":"Mr. Hedayat Tanian","musicName":"Theater and acting in theater",
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/2019-04-27-15-00-00_preview.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":7,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":"Mr. Karen Niaz",
@@ -58,7 +56,6 @@
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/2019-03-09-15-00-00_preview.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":8,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":"Sahar and Reza Vatan",
@@ -66,7 +63,6 @@
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/mandana-alavi_preview.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":9,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":" Frau Manijeh Shokouhi",
@@ -74,7 +70,6 @@
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/manijeh-shokouhi_preview.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":10,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":"Katy Niknam",
@@ -82,14 +77,12 @@
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/2016-08-21-15-00-00_preview.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":11,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":"Sahar and Reza Vatan",
 "musicName":"Human Rights in Iran with the guests of the program",
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/2018-11-24-15-00-00_1_preview.mp3",
 "isLiked":false,"length":0},
-
 {"id":12,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":"Daniel Saket",
@@ -97,14 +90,13 @@
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/2020-10-24-15-00-01_preview.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":13,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
-"artistName":"Saman Haghighi","musicName":"The impact of music on human life",
+"artistName":"Saman Haghighi",
+"musicName":"The impact of music on human life",
 "url":"https://dls.musicmedia.ir/ahang/Ahang%20Santour%20[%20musicmedia.ir%20]%20320.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":14,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":"Mag.Nina Elahi",
@@ -112,7 +104,6 @@
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/2021-01-09-15-00-00_preview.mp3",
 "isLiked":false,
 "length":0},
-
 {"id":15,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
 "artistName":"Mr. Kiani and Sahar",

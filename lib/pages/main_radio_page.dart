@@ -14,6 +14,7 @@ import 'contact_us/contacts_page.dart';
 class MainRadioPage extends StatefulWidget {
   AudioPlayer advancedPlayer = AudioPlayer();
 
+
   @override
   State<StatefulWidget> createState() => MainRadioPageState();
 }
@@ -123,7 +124,7 @@ class MainRadioPageState extends State<MainRadioPage>
             )),
         title: Text(
           "Radio Tiam",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontStyle: FontStyle.italic),
         ),
       ),
       body: Column(
@@ -183,17 +184,17 @@ class MainRadioPageState extends State<MainRadioPage>
                             color: Colors.white),
                       ),
                       Text(
-                        "artistName",
+                        "    Immer und überall an Ihrer Seite",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: fullWidth(context) / 20,
                             color: Colors.white),
                       ),
                       Text(
-                        "musicName",
+                        "mit dem Live Radio Tiam , 94.0 ",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: fullWidth(context) / 30,
+                          fontSize: fullWidth(context) / 28,
                           color: Colors.white,
                         ),
                       )
