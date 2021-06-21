@@ -122,10 +122,12 @@ class PodcastListState extends State<PodcastListPage>
                       color: Colors.white, fontWeight: FontWeight.w600),
                 ),
               ),
-              body: ListView.builder(
-                  itemCount: 13,
-                  itemBuilder: (context, index) =>
-                      PodcastItemWidget(model, podcastIndex: index)),
+              body: model.isBusy
+                  ? SizedBox()
+                  : ListView.builder(
+                      itemCount: model.data?.length ?? 0,
+                      itemBuilder: (context, index) =>
+                          PodcastItemWidget(model, podcastIndex: index)),
             ));
   }
 }
