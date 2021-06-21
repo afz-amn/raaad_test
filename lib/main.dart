@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:radio/pages/main_radio_page.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
               toolbarTextStyle: TextStyle(color: Colors.white),
               centerTitle: true,
               elevation: 0)),
-      home: PodcastListPage(),
+      home: MainRadioPage(),
     );
   }
 }
