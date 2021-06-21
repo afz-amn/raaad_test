@@ -32,8 +32,16 @@ class MainPageState extends State<MainPage>
   void initState() {
     widget.advancedPlayer.onSeekComplete
         .listen((event) => setState(() => seekDone = true));
-
+    widget.advancedPlayer
+        .setUrl(widget.viewModel.data![widget.podcastIndex].url);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // widget.advancedPlayer.stop();
+    widget.advancedPlayer.release();
+    super.dispose();
   }
 
   @override
@@ -89,7 +97,6 @@ class MainPageState extends State<MainPage>
                           },
                           child: drawerItem(
                               Icons.photo_camera_front, "Gallery ", context)),
-
                       GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -110,8 +117,6 @@ class MainPageState extends State<MainPage>
                           },
                           child: drawerItem(Icons.quick_contacts_mail,
                               "Contact us", context)),
-
-
                     ],
                   ),
                 ),
@@ -201,9 +206,9 @@ class MainPageState extends State<MainPage>
                                 model.data![widget.podcastIndex].musicName,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontSize: fullWidth(context) / 30,
-                                    color: Colors.white,
-                                     ),
+                                  fontSize: fullWidth(context) / 30,
+                                  color: Colors.white,
+                                ),
                               )
                             ],
                           ),
@@ -239,8 +244,6 @@ class MainPageState extends State<MainPage>
                               });
                             } else {
                               setState(() {
-                                widget.advancedPlayer.setUrl(
-                                    "https://securestream.o94.at/live.mp3");
                                 widget.advancedPlayer.resume();
                               });
                             }

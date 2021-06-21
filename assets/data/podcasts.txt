@@ -8,7 +8,7 @@
 
 {"id":1,
 "imageUrl":"https://raw.githubusercontent.com/afz-amn/raaad_test/master/assets/podcastPhoto.JPG",
-artistName":"Mr. Hedayat Tanian",
+"artistName":"Mr. Hedayat Tanian",
 "musicName":"Theater and acting in theater",
 "url":"https://cba.fro.at/wp-content/uploads/tiamradio/2017-02-19-15-00-00_preview.mp3",
 "isLiked":false,
