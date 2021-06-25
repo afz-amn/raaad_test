@@ -16,27 +16,6 @@ class YoutubeCHannelPage extends StatelessWidget {
               body: CustomScrollView(
                 physics: BouncingScrollPhysics(),
                 slivers: [
-                  SliverAppBar(
-                    backgroundColor: Colors.black38,
-                    expandedHeight: 100,
-                    pinned: true,
-                    stretch: true,
-                    leading: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    ),
-                    title: Text(
-                      "Youtube Channel",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic),
-                    ),
-
-                    flexibleSpace: FlexibleSpaceBar(
-                      stretchModes: [StretchMode.zoomBackground],
-                    ),
-                  ),
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
@@ -117,14 +96,14 @@ class YoutubeChannelItem extends StatelessWidget {
                               fontSize: 18,
                               fontStyle: FontStyle.italic),
                         ),
-                        Text(
-                          youtubeChannel.imageUrl,
-                          style: TextStyle(
-                              color: Colors.white70,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12,
-                              fontStyle: FontStyle.italic),
-                        ),
+                        // Text(
+                        //   youtubeChannel.,
+                        //   style: TextStyle(
+                        //       color: Colors.white70,
+                        //       fontWeight: FontWeight.w500,
+                        //       fontSize: 12,
+                        //       fontStyle: FontStyle.italic),
+                        // ),
                       ],
                     ),
                   ),

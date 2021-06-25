@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 import 'package:stacked/stacked.dart';
-import 'gallery/Gallery_page.dart';
-import 'main_radio_page.dart';
-import 'youtube_channel/Youtube.dart';
+import '../gallery/Gallery_page.dart';
+import '../radio/main_radio_page.dart';
+import '../youtube_channel/Youtube.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 
-import 'contact_us/contacts_page.dart';
+import '../contact_us/contacts_page.dart';
 
 class PodcastPage extends StatefulWidget {
   final int podcastIndex;

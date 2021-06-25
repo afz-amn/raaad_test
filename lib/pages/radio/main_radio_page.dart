@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 import 'package:stacked/stacked.dart';
-import 'gallery/Gallery_page.dart';
-import 'youtube_channel/Youtube.dart';
+import '../gallery/Gallery_page.dart';
+import '../youtube_channel/Youtube.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 
-import 'contact_us/contacts_page.dart';
+import '../contact_us/contacts_page.dart';
 
 class MainRadioPage extends StatefulWidget {
   final AudioPlayer advancedPlayer = AudioPlayer();
@@ -41,104 +41,6 @@ class MainRadioPageState extends State<MainRadioPage>
     return Scaffold(
       key: key,
       backgroundColor: Colors.black87,
-      drawer: Drawer(
-        child: Container(
-          color: Colors.grey.shade900,
-          child: Column(
-            children: [
-              AppBar(
-                title: Text(
-                  "Radio Tiam",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
-                ),
-                leading: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(
-                      Icons.close,
-                      color: Colors.black,
-                    )),
-              ),
-              Container(
-                  width: fullWidth(context),
-                  height: 150,
-                  child: Image.asset(PlayPhoto, fit: BoxFit.fitWidth)),
-              // GestureDetector(
-              //     onTap: () {
-              //       Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //             builder: (context) => PodcastListPage(),
-              //           ));
-              //     },
-              //     child: drawerItem(
-              //         Icons.headset_mic_sharp, "Podcast", context)),
-
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PodcastListPage(),
-                        ));
-                  },
-                  child: drawerItem(
-                      Icons.headset_mic, "podcast list ", context)),
-
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => YoutubeCHannelPage(),
-                        ));
-                  },
-                  child: drawerItem(Icons.ondemand_video, "Youtube ", context)),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => GalleryPage(),
-                        ));
-                  },
-                  child: drawerItem(
-                      Icons.photo_camera_front, "Gallery ", context)),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ContactsPage(),
-                        ));
-                  },
-                  child: drawerItem(
-                      Icons.quick_contacts_mail, "Contact us", context)),
-            ],
-          ),
-        ),
-      ),
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              key.currentState!.openDrawer();
-            },
-            icon: Icon(
-              Icons.menu,
-              color: Colors.white,
-            )),
-        title: Text(
-          "Radio Tiam",
-          style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontStyle: FontStyle.italic),
-        ),
-      ),
       body: Column(
         children: [
           Container(

@@ -3,6 +3,7 @@ class YoutubeItem {
   String imageUrl;
   String url;
   String title;
+  // String desc;
 
   YoutubeItem(this.url, this.id, this.imageUrl, this.title);
 

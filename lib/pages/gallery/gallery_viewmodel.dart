@@ -7,4 +7,5 @@ class GalleryViewModel extends FutureViewModel<List<Gallery>> {
   Future<List<Gallery>> futureToRun() {
     return prepareGalleriesRequest();
   }
+
 }
