@@ -14,6 +14,24 @@ class GalleryPage extends StatelessWidget {
         body: CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: [
+            SliverAppBar(
+              backgroundColor: Colors.black38,
+              expandedHeight: 200,
+              pinned: true,
+              stretch: true,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  "Gallery",
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 30,
+                      fontStyle: FontStyle.italic),
+                ),
+                centerTitle: false,
+                stretchModes: [StretchMode.zoomBackground],
+                // background: Image.network(
+                //     'https://i.pinimg.com/originals/ee/d8/79/eed87935929cba829b0df65c20ba80f5.jpg'),
+              ),),
             SliverList(
                 delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {

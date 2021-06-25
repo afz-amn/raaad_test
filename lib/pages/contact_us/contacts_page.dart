@@ -12,13 +12,12 @@ class ContactsPage extends StatelessWidget {
          viewModelBuilder: () => ContactListVM(),
          builder: (context, model, child) => Scaffold(
          resizeToAvoidBottomInset: true,
-
-          appBar: AppBar(
+           appBar: AppBar(
             backgroundColor: Colors.black38,
             title: Image.asset(contactUs,fit: BoxFit.fitWidth,),
 
           ),
-        
+
             body: Container(
             height: fullHeight(context),
             child: ListView(
