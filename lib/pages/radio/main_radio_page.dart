@@ -5,7 +5,7 @@ import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 import 'package:stacked/stacked.dart';
 import '../gallery/Gallery_page.dart';
-import '../youtube_channel/Youtube.dart';
+import '../youtube_channel/youtube_list_page.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
 

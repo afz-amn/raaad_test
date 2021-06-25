@@ -2,7 +2,7 @@
 
 import 'package:radio/models/gallery.dart';
 import 'package:radio/models/youtube_item.dart';
-import 'package:radio/pages/youtube_channel/Youtube.dart';
+import 'package:radio/pages/youtube_channel/youtube_list_page.dart';
 import 'package:radio/styles/assets.dart';
 
 import 'models/contact_us_model.dart';

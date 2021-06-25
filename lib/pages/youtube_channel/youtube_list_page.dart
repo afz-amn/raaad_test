@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:radio/models/youtube_item.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
+import 'package:radio/pages/youtube_channel/youtube_player.dart';
 import 'package:radio/pages/youtube_channel/youtube_viewmodel.dart';
 import 'package:radio/styles/dimens.dart';
 import 'package:stacked/stacked.dart';
 
-class YoutubeCHannelPage extends StatelessWidget {
+class YoutubeListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<YoutubeListVM>.reactive(
@@ -31,15 +32,6 @@ class YoutubeCHannelPage extends StatelessWidget {
 }
 
 
-//class YoutubeChannel {
-//int id;
-// String imageUrl;
-//String ArtistName;
-//String videoName;
-
-//YoutubeChannel(this.ArtistName, this.id, this.imageUrl, this.videoName);
-//}
-
 class YoutubeChannelItem extends StatelessWidget {
   final YoutubeItem youtubeChannel;
 
@@ -51,7 +43,7 @@ class YoutubeChannelItem extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => PodcastListPage(),
+            builder: (context) => YoutubePlayerPage(),
           )),
       child: Container(
         margin: EdgeInsets.only(
@@ -96,14 +88,6 @@ class YoutubeChannelItem extends StatelessWidget {
                               fontSize: 18,
                               fontStyle: FontStyle.italic),
                         ),
-                        // Text(
-                        //   youtubeChannel.,
-                        //   style: TextStyle(
-                        //       color: Colors.white70,
-                        //       fontWeight: FontWeight.w500,
-                        //       fontSize: 12,
-                        //       fontStyle: FontStyle.italic),
-                        // ),
                       ],
                     ),
                   ),

@@ -4,7 +4,7 @@ import 'package:radio/pages/contact_us/contacts_page.dart';
 import 'package:radio/pages/radio/main_radio_page.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
 import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
-import 'package:radio/pages/youtube_channel/Youtube.dart';
+import 'package:radio/pages/youtube_channel/youtube_list_page.dart';
 import 'package:stacked/stacked.dart';
 import 'package:radio/styles/assets.dart';
 import 'package:radio/styles/dimens.dart';
@@ -32,7 +32,7 @@ class BasePageState extends State<BasePage>
       case 1:
         return PodcastListPage();
       case 2:
-        return YoutubeCHannelPage();
+        return YoutubeListPage();
       case 3:
         return GalleryPage();
       default:

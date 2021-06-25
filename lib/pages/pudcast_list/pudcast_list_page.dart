@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:radio/pages/contact_us/contacts_page.dart';
 import 'package:radio/pages/radio/main_radio_page.dart';
 import 'package:radio/pages/pudcast_list/podcost_list_viewmodel.dart';
-import 'package:radio/pages/youtube_channel/Youtube.dart';
+import 'package:radio/pages/youtube_channel/youtube_list_page.dart';
 import 'package:stacked/stacked.dart';
 import 'podcast_page.dart';
 import 'package:radio/styles/assets.dart';
