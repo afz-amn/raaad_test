@@ -31,7 +31,6 @@ class YoutubeListPage extends StatelessWidget {
   }
 }
 
-
 class YoutubeChannelItem extends StatelessWidget {
   final YoutubeItem youtubeChannel;
 
@@ -43,7 +42,7 @@ class YoutubeChannelItem extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => YoutubePlayerPage(),
+            builder: (context) => YoutubePlayerPage(youtubeChannel.url),
           )),
       child: Container(
         margin: EdgeInsets.only(
