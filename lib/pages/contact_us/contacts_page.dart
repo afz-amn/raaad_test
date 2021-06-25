@@ -16,6 +16,7 @@ class ContactsPage extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.black38,
             title: Image.asset(contactUs,fit: BoxFit.fitWidth,),
+
           ),
         
             body: Container(

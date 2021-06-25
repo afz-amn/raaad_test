@@ -17,7 +17,6 @@ class MainRadioPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => MainRadioPageState();
 }
-
 class MainRadioPageState extends State<MainRadioPage>
     with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
@@ -30,7 +29,6 @@ class MainRadioPageState extends State<MainRadioPage>
 
     super.initState();
   }
-
   @override
   void dispose() {
     // widget.advancedPlayer.stop();
@@ -89,7 +87,7 @@ class MainRadioPageState extends State<MainRadioPage>
                         ));
                   },
                   child: drawerItem(
-                      Icons.ondemand_video, "podcast list ", context)),
+                      Icons.headset_mic, "podcast list ", context)),
 
               GestureDetector(
                   onTap: () {
@@ -246,7 +244,7 @@ class MainRadioPageState extends State<MainRadioPage>
                     } else {
                       setState(() {
                         widget.advancedPlayer
-                            .setUrl("https://securestream.o94.at/live.mp3");
+                               .setUrl("https://securestream.o94.at/live.mp3");
                         widget.advancedPlayer.resume();
                       });
                     }

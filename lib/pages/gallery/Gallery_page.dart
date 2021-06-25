@@ -31,8 +31,7 @@ class GalleryPage extends StatelessWidget {
                 stretchModes: [StretchMode.zoomBackground],
                 // background: Image.network(
                 //     'https://i.pinimg.com/originals/ee/d8/79/eed87935929cba829b0df65c20ba80f5.jpg'),
-              ),
-            ),
+              ),),
             SliverList(
                 delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
