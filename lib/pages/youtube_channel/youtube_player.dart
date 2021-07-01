@@ -86,7 +86,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
             player: YoutubePlayer(
               controller: _controller,
               showVideoProgressIndicator: true,
-              progressIndicatorColor: Colors.blueAccent,
+              progressIndicatorColor: Colors.white,
               topActions: <Widget>[
                 const SizedBox(width: 8.0),
                 Expanded(
@@ -145,6 +145,9 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                   ),
                 ],
               ),
+
+
+
               body: ListView(
                 children: [
                   player,
@@ -155,12 +158,12 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                       children: [
                         _space,
                         _text('Title', _videoMetaData.title),
-                        _space,
-                        _text('Channel', _videoMetaData.author),
-                        _space,
-                        _text('Video Id', _videoMetaData.videoId),
-                        _space,
-                        Row(
+                        //_space,
+                        //_text('Channel', _videoMetaData.author),
+                        //_space,
+                        //_text('Video Id', _videoMetaData.videoId),
+                        //_space,
+                       /* Row(
                           children: [
                             _text(
                               'Playback Quality',
@@ -173,6 +176,8 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                             ),
                           ],
                         ),
+
+                        */
                         _space,
                         TextField(
                           enabled: _isPlayerReady,
@@ -180,11 +185,11 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Enter youtube \<video id\> or \<link\>',
-                            fillColor: Colors.blueAccent.withAlpha(20),
+                            fillColor: Colors.white.withAlpha(20),
                             filled: true,
                             hintStyle: const TextStyle(
                               fontWeight: FontWeight.w300,
-                              color: Colors.blueAccent,
+                              color: Colors.white,
                             ),
                             suffixIcon: IconButton(
                               icon: const Icon(Icons.clear),
@@ -193,13 +198,17 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                           ),
                         ),
                         _space,
-                        Row(
+
+
+                       /* Row(
                           children: [
                             _loadCueButton('LOAD'),
                             const SizedBox(width: 10.0),
                             _loadCueButton('CUE'),
                           ],
                         ),
+                       */
+
                         _space,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -245,7 +254,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                             ),
                             FullScreenButton(
                               controller: _controller,
-                              color: Colors.blueAccent,
+                              color: Colors.white,
                             ),
                             IconButton(
                               icon: const Icon(Icons.skip_next),
@@ -318,14 +327,14 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
       text: TextSpan(
         text: '$title : ',
         style: const TextStyle(
-          color: Colors.blueAccent,
+          color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
         children: [
           TextSpan(
             text: value,
             style: const TextStyle(
-              color: Colors.blueAccent,
+              color: Colors.white,
               fontWeight: FontWeight.w300,
             ),
           ),
@@ -360,7 +369,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
   Widget _loadCueButton(String action) {
     return Expanded(
       child: MaterialButton(
-        color: Colors.blueAccent,
+        color: Colors.white,
         onPressed: _isPlayerReady
             ? () {
                 if (_idController.text.isNotEmpty) {
@@ -405,7 +414,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
             fontSize: 16.0,
           ),
         ),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.white,
         behavior: SnackBarBehavior.floating,
         elevation: 1.0,
         shape: RoundedRectangleBorder(

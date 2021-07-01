@@ -15,21 +15,16 @@ class ContactsPage extends StatelessWidget {
            appBar: AppBar(
             backgroundColor: Colors.black38,
             title: Image.asset(contactUs,fit: BoxFit.fitWidth,),
-
           ),
-
             body: Container(
             height: fullHeight(context),
             child: ListView(
             children: [
-
               Container(
-
                 margin: EdgeInsets.only(top: xxlargeSize(context),left: xxlargeSize(context),right: xxlargeSize(context)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
-
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -37,7 +32,8 @@ class ContactsPage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.white
                         ),),
-                        Text("Call us or send a message and \n we'll respond as soon as possible",style: TextStyle(
+                        Text("Call us or send a message and \n we'll respond as soon as possible",
+                            style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
                             color: Colors.white

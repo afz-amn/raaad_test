@@ -21,7 +21,7 @@ class GalleryPage extends StatelessWidget {
               stretch: true,
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
-                  "Gallery",
+                  "",
                   style: TextStyle(
                       color: Colors.white70,
                       fontSize: 30,

@@ -14,7 +14,7 @@ import 'gallery/Gallery_page.dart';
 
 class BasePage extends StatefulWidget {
   int _selectedIndex = 0;
-  String _title = "radio";
+  String _title = "Radio Tiam";
 
   @override
   State<StatefulWidget> createState() => BasePageState();
@@ -92,7 +92,7 @@ class BasePageState extends State<BasePage>
                             });
                           },
                           child:
-                              drawerItem(Icons.radio, "radio tiam ", context)),
+                              drawerItem(Icons.radio, "Radio Tiam ", context)),
                       GestureDetector(
                           onTap: () {
                             setState(() {
@@ -101,7 +101,7 @@ class BasePageState extends State<BasePage>
                               Navigator.pop(context);
                             });
                           },
-                          child: drawerItem(Icons.radio, "podcasts", context)),
+                          child: drawerItem(Icons.headset_mic_outlined, "Podcasts", context)),
 
                       GestureDetector(
                           onTap: () {

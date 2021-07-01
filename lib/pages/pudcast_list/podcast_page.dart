@@ -88,7 +88,7 @@ class PodcastPageState extends State<PodcastPage>
                                 ));
                           },
                           child: drawerItem(
-                              Icons.ondemand_video, "radio tiam ", context)),
+                              Icons.radio, "Radio Tiam ", context)),
                       GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -98,7 +98,7 @@ class PodcastPageState extends State<PodcastPage>
                                 ));
                           },
                           child: drawerItem(
-                              Icons.ondemand_video, "Youtube ", context)),
+                              Icons.ondemand_video, "You-Tube Videos", context)),
                       GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -108,7 +108,7 @@ class PodcastPageState extends State<PodcastPage>
                                 ));
                           },
                           child: drawerItem(
-                              Icons.photo_camera_front, "Gallery ", context)),
+                              Icons.photo_size_select_actual_outlined, "Gallery ", context)),
                       GestureDetector(
                           onTap: () {
                             Navigator.push(

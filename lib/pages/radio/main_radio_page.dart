@@ -98,18 +98,20 @@ class MainRadioPageState extends State<MainRadioPage>
                             color: Colors.white),
                       ),
                       Text(
-                        "    Immer und überall an Ihrer Seite",
+                        "    Immer und Überall an Ihrer Seite",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: fullWidth(context) / 20,
-                            color: Colors.white),
+                            color: Colors.white,
+                            fontStyle: FontStyle.italic),
                       ),
                       Text(
-                        "mit dem Live Radio Tiam , 94.0 ",
+                        "Mit dem Live Radio Tiam , 94.0 ",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: fullWidth(context) / 28,
-                          color: Colors.white,
+                            fontSize: fullWidth(context) / 28,
+                            color: Colors.white,
+                            fontStyle: FontStyle.italic
                         ),
                       )
                     ],
