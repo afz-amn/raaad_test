@@ -4,31 +4,27 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 /// Creates list of video players
 class VideoList extends StatefulWidget {
+  final List<String> videos;
+  late final List<YoutubePlayerController> _controllers;
+
+  VideoList(this.videos) {
+    _controllers = videos
+        .map<YoutubePlayerController>(
+          (videoId) => YoutubePlayerController(
+            initialVideoId: videoId,
+            flags: const YoutubePlayerFlags(
+              autoPlay: false,
+            ),
+          ),
+        )
+        .toList();
+  }
+
   @override
   _VideoListState createState() => _VideoListState();
 }
 
 class _VideoListState extends State<VideoList> {
-  final List<YoutubePlayerController> _controllers = [
-    'gQDByCdjUXw',
-    'iLnmTe5Q2Qw',
-    '_WoCV4c6XOE',
-    'KmzdUe0RSJo',
-    '6jZDSSZZxjQ',
-    'p2lYr3vM_1w',
-    '7QUtEmBT_-w',
-    '34_PXCzGw1M',
-  ]
-      .map<YoutubePlayerController>(
-        (videoId) => YoutubePlayerController(
-      initialVideoId: videoId,
-      flags: const YoutubePlayerFlags(
-        autoPlay: false,
-      ),
-    ),
-  )
-      .toList();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +34,8 @@ class _VideoListState extends State<VideoList> {
       body: ListView.separated(
         itemBuilder: (context, index) {
           return YoutubePlayer(
-            key: ObjectKey(_controllers[index]),
-            controller: _controllers[index],
+            key: ObjectKey(widget._controllers[index]),
+            controller: widget._controllers[index],
             actionsPadding: const EdgeInsets.only(left: 16.0),
             bottomActions: [
               CurrentPosition(),
@@ -51,7 +47,7 @@ class _VideoListState extends State<VideoList> {
             ],
           );
         },
-        itemCount: _controllers.length,
+        itemCount: widget._controllers.length,
         separatorBuilder: (context, _) => const SizedBox(height: 10.0),
       ),
     );

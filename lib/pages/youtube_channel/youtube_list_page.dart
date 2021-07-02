@@ -19,7 +19,7 @@ class YoutubeListPage extends StatelessWidget {
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
-                        return YoutubeChannelItem(model.data![index]);
+                        return YoutubeChannelItem(model.data![index],model.ids);
                       },
                       childCount: model.data?.length ?? 0,
                     ),
@@ -32,8 +32,9 @@ class YoutubeListPage extends StatelessWidget {
 
 class YoutubeChannelItem extends StatelessWidget {
   final YoutubeItem youtubeChannel;
+  final List<String> videos;
 
-  YoutubeChannelItem(this.youtubeChannel);
+  YoutubeChannelItem(this.youtubeChannel, this.videos);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class YoutubeChannelItem extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => YoutubePlayerPage(youtubeChannel.url),
+            builder: (context) => YoutubePlayerPage(youtubeChannel.url, videos),
           )),
       child: Container(
         margin: EdgeInsets.only(

@@ -10,8 +10,9 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubePlayerPage extends StatefulWidget {
   final String initialVideoId;
+  final List<String> videos;
 
-  YoutubePlayerPage(this.initialVideoId);
+  YoutubePlayerPage(this.initialVideoId, this.videos);
 
   @override
   _YoutubePlayerPageState createState() => _YoutubePlayerPageState();
@@ -139,15 +140,12 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                     onPressed: () => Navigator.push(
                       context,
                       CupertinoPageRoute(
-                        builder: (context) => VideoList(),
+                        builder: (context) => VideoList(widget.videos),
                       ),
                     ),
                   ),
                 ],
               ),
-
-
-
               body: ListView(
                 children: [
                   player,
@@ -163,7 +161,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                         //_space,
                         //_text('Video Id', _videoMetaData.videoId),
                         //_space,
-                       /* Row(
+                        /* Row(
                           children: [
                             _text(
                               'Playback Quality',
@@ -199,8 +197,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                         ),
                         _space,
 
-
-                       /* Row(
+                        /* Row(
                           children: [
                             _loadCueButton('LOAD'),
                             const SizedBox(width: 10.0),
