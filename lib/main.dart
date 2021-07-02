@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:radio/pages/base_page.dart';
-import 'package:radio/pages/radio/main_radio_page.dart';
-import 'package:radio/pages/pudcast_list/pudcast_list_page.dart';
 
 void main() {
   runApp(MyApp());

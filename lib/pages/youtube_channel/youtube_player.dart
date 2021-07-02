@@ -9,7 +9,7 @@ import 'package:stacked/stacked.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubePlayerPage extends StatefulWidget {
-  String initialVideoId;
+  final String initialVideoId;
 
   YoutubePlayerPage(this.initialVideoId);
 

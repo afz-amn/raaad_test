@@ -115,9 +115,9 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                 children: [
                   Slider(
                     onChanged: (v) {
-                      final Position = v * _duration!.inMilliseconds;
+                      final position = v * _duration!.inMilliseconds;
                       _audioPlayer
-                          .seek(Duration(milliseconds: Position.round()));
+                          .seek(Duration(milliseconds: position.round()));
                     },
                     value: (_position != null &&
                         _duration != null &&

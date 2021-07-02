@@ -13,8 +13,7 @@ import 'gallery/Gallery_page.dart';
 
 
 class BasePage extends StatefulWidget {
-  int _selectedIndex = 0;
-  String _title = "Radio Tiam";
+
 
   @override
   State<StatefulWidget> createState() => BasePageState();
@@ -23,10 +22,12 @@ class BasePage extends StatefulWidget {
 class BasePageState extends State<BasePage>
     with SingleTickerProviderStateMixin {
   double valueCurrent = 0;
+  int _selectedIndex = 0;
+  String _title = "Radio Tiam";
   final GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
 
   Widget body() {
-    switch (widget._selectedIndex) {
+    switch (_selectedIndex) {
       case 0:
         return MainRadioPage();
       case 1:
@@ -54,7 +55,7 @@ class BasePageState extends State<BasePage>
                     children: [
                       AppBar(
                         title: Text(
-                          widget._title,
+                          _title,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 17,
@@ -86,8 +87,8 @@ class BasePageState extends State<BasePage>
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              widget._selectedIndex = 0;
-                              widget._title = "radio tiam";
+                              _selectedIndex = 0;
+                              _title = "radio tiam";
                               Navigator.pop(context);
                             });
                           },
@@ -96,8 +97,8 @@ class BasePageState extends State<BasePage>
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              widget._selectedIndex = 1;
-                              widget._title = "podcasts";
+                              _selectedIndex = 1;
+                              _title = "podcasts";
                               Navigator.pop(context);
                             });
                           },
@@ -106,8 +107,8 @@ class BasePageState extends State<BasePage>
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              widget._selectedIndex = 2;
-                              widget._title = "Youtube";
+                              _selectedIndex = 2;
+                              _title = "Youtube";
                               Navigator.pop(context);
                             });
                           },
@@ -116,8 +117,8 @@ class BasePageState extends State<BasePage>
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              widget._selectedIndex = 3;
-                              widget._title = "Gallery";
+                              _selectedIndex = 3;
+                              _title = "Gallery";
                               Navigator.pop(context);
                             });
                           },
@@ -126,8 +127,8 @@ class BasePageState extends State<BasePage>
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              widget._selectedIndex = 4;
-                              widget._title = "Contact us";
+                              _selectedIndex = 4;
+                              _title = "Contact us";
                               Navigator.pop(context);
                             });
                           },
@@ -147,7 +148,7 @@ class BasePageState extends State<BasePage>
                       color: Colors.white,
                     )),
                 title: Text(
-                  widget._title,
+                  _title,
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w600),
                 ),
