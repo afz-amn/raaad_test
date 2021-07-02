@@ -29,7 +29,6 @@ class YoutubeListPage extends StatelessWidget {
             ));
   }
 }
-
 class YoutubeChannelItem extends StatelessWidget {
   final YoutubeItem youtubeChannel;
   final List<String> videos;
