@@ -42,7 +42,7 @@ class YoutubeChannelItem extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => YoutubePlayerPage(youtubeChannel.url, videos),
+            builder: (context) => YoutubePlayerPage(youtubeChannel,youtubeChannel.title, videos),
           )),
       child: Container(
         margin: EdgeInsets.only(

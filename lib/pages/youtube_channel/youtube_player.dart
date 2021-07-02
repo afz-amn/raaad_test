@@ -3,16 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:radio/models/youtube_item.dart';
 import 'package:radio/pages/youtube_channel/youtube_viewmodel.dart';
 import 'package:radio/video_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubePlayerPage extends StatefulWidget {
-  final String initialVideoId;
+  final YoutubeItem youtubeChannel;
+  final String title;
   final List<String> videos;
 
-  YoutubePlayerPage(this.initialVideoId, this.videos);
+  YoutubePlayerPage(this.youtubeChannel,this.title, this.videos);
 
   @override
   _YoutubePlayerPageState createState() => _YoutubePlayerPageState();
@@ -33,7 +35,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
   void initState() {
     super.initState();
     _controller = YoutubePlayerController(
-      initialVideoId: widget.initialVideoId,
+      initialVideoId: widget.youtubeChannel.url,
       flags: const YoutubePlayerFlags(
         mute: false,
         autoPlay: true,
@@ -123,15 +125,8 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
             ),
             builder: (context, player) => Scaffold(
               appBar: AppBar(
-                leading: Padding(
-                  padding: const EdgeInsets.only(left: 12.0),
-                  child: Image.asset(
-                    'assets/studio.jpg',
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-                title: const Text(
-                  'Youtube Player Flutter',
+                title: Text(
+                  "${widget.title}",
                   style: TextStyle(color: Colors.white),
                 ),
                 actions: [
@@ -155,63 +150,15 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         _space,
-                        _text('Title', _videoMetaData.title),
-                        //_space,
-                        //_text('Channel', _videoMetaData.author),
-                        //_space,
-                        //_text('Video Id', _videoMetaData.videoId),
-                        //_space,
-                        /* Row(
-                          children: [
-                            _text(
-                              'Playback Quality',
-                              _controller.value.playbackQuality ?? '',
-                            ),
-                            const Spacer(),
-                            _text(
-                              'Playback Rate',
-                              '${_controller.value.playbackRate}x  ',
-                            ),
-                          ],
-                        ),
-
-                        */
-                        _space,
-                        TextField(
-                          enabled: _isPlayerReady,
-                          controller: _idController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Enter youtube \<video id\> or \<link\>',
-                            fillColor: Colors.white.withAlpha(20),
-                            filled: true,
-                            hintStyle: const TextStyle(
-                              fontWeight: FontWeight.w300,
-                              color: Colors.white,
-                            ),
-                            suffixIcon: IconButton(
-                              icon: const Icon(Icons.clear),
-                              onPressed: () => _idController.clear(),
-                            ),
-                          ),
-                        ),
-                        _space,
-
-                        /* Row(
-                          children: [
-                            _loadCueButton('LOAD'),
-                            const SizedBox(width: 10.0),
-                            _loadCueButton('CUE'),
-                          ],
-                        ),
-                       */
-
                         _space,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.skip_previous),
+                              icon: const Icon(
+                                Icons.skip_previous,
+                                color: Colors.white,
+                              ),
                               onPressed: _isPlayerReady
                                   ? () => _controller.load(model
                                       .ids[(model.ids.indexOf(
@@ -225,6 +172,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                                 _controller.value.isPlaying
                                     ? Icons.pause
                                     : Icons.play_arrow,
+                                color: Colors.white,
                               ),
                               onPressed: _isPlayerReady
                                   ? () {
@@ -238,6 +186,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                             IconButton(
                               icon: Icon(
                                   _muted ? Icons.volume_off : Icons.volume_up),
+                              color: Colors.white,
                               onPressed: _isPlayerReady
                                   ? () {
                                       _muted
@@ -254,7 +203,10 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                               color: Colors.white,
                             ),
                             IconButton(
-                              icon: const Icon(Icons.skip_next),
+                              icon: const Icon(
+                                Icons.skip_next,
+                                color: Colors.white,
+                              ),
                               onPressed: _isPlayerReady
                                   ? () => _controller.load(model
                                       .ids[(model.ids.indexOf(
@@ -269,8 +221,11 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                         Row(
                           children: <Widget>[
                             const Text(
-                              "Volume",
-                              style: TextStyle(fontWeight: FontWeight.w300),
+                              "Volume :",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                color: Colors.white,
+                              ),
                             ),
                             Expanded(
                               child: Slider(
@@ -293,22 +248,6 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
                           ],
                         ),
                         _space,
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 800),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            color: _getStateColor(_playerState),
-                          ),
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            _playerState.toString(),
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w300,
-                              color: Colors.white,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -319,86 +258,7 @@ class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
         });
   }
 
-  Widget _text(String title, String value) {
-    return RichText(
-      text: TextSpan(
-        text: '$title : ',
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-        children: [
-          TextSpan(
-            text: value,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Color _getStateColor(PlayerState state) {
-    switch (state) {
-      case PlayerState.unknown:
-        return Colors.grey[700]!;
-      case PlayerState.unStarted:
-        return Colors.pink;
-      case PlayerState.ended:
-        return Colors.red;
-      case PlayerState.playing:
-        return Colors.blueAccent;
-      case PlayerState.paused:
-        return Colors.orange;
-      case PlayerState.buffering:
-        return Colors.yellow;
-      case PlayerState.cued:
-        return Colors.blue[900]!;
-      default:
-        return Colors.blue;
-    }
-  }
-
   Widget get _space => const SizedBox(height: 10);
-
-  Widget _loadCueButton(String action) {
-    return Expanded(
-      child: MaterialButton(
-        color: Colors.white,
-        onPressed: _isPlayerReady
-            ? () {
-                if (_idController.text.isNotEmpty) {
-                  var id = YoutubePlayer.convertUrlToId(
-                        _idController.text,
-                      ) ??
-                      '';
-                  if (action == 'LOAD') _controller.load(id);
-                  if (action == 'CUE') _controller.cue(id);
-                  FocusScope.of(context).requestFocus(FocusNode());
-                } else {
-                  _showSnackBar('Source can\'t be empty!');
-                }
-              }
-            : null,
-        disabledColor: Colors.grey,
-        disabledTextColor: Colors.black,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 14.0),
-          child: Text(
-            action,
-            style: const TextStyle(
-              fontSize: 18.0,
-              color: Colors.white,
-              fontWeight: FontWeight.w300,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
-    );
-  }
 
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
